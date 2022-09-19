@@ -2,6 +2,20 @@ import random
 import string
 
 
+def func_1():
+    for _ in range(int(input())):
+        if random.randint(0, 2) == 0:
+            print('Орел')
+        else:
+            print('Решка')
+
+
+def func_2():
+    for _ in range(int(input())):
+        i = random.randrange(1, 7)
+        print(i)
+
+
 def func_8():
     k = 0
     for i in range(10 ** 6):
