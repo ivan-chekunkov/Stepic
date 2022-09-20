@@ -16,6 +16,29 @@ def func_2():
         print(i)
 
 
+def func_3():
+    length = int(input())
+    all_letters = list(range(97, 123)) + list(range(65, 91))
+    length_all_letters = len(all_letters)
+    for _ in range(length):
+        index = random.randint(0, length_all_letters - 1)
+        print(chr(all_letters[index]), end='')
+
+
+def func_4():
+    nums = []
+    count = 0
+    while count < 7:
+        num = random.randint(1, 49)
+        if num in nums:
+            count -= 1
+        else:
+            nums.append(num)
+        count += 1
+    nums.sort()
+    print(*nums)
+
+
 def func_8():
     k = 0
     for i in range(10 ** 6):
