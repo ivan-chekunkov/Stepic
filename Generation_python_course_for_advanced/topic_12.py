@@ -39,6 +39,27 @@ def func_4():
     print(*nums)
 
 
+def generate_ip():
+    result = ''
+    for _ in range(4):
+        result += str(random.randint(0, 255)) + '.'
+    return result[:-1]
+
+
+def generate_index():
+    result = ''
+    chars = string.ascii_uppercase
+    nums = string.digits
+    for index in range(9):
+        if index == 4:
+            result += '_'
+        elif index in [0, 1, 7, 8]:
+            result += random.choice(chars)
+        else:
+            result += random.choice(nums)
+    return result
+
+
 def func_8():
     k = 0
     for i in range(10 ** 6):
