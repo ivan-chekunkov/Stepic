@@ -60,6 +60,22 @@ def generate_index():
     return result
 
 
+def func_5():
+    matrix = [[1, 2, 3, 4],
+              [5, 6, 7, 8],
+              [9, 10, 11, 12],
+              [13, 14, 15, 16]]
+    for row in matrix:
+        random.shuffle(row)
+    random.shuffle(matrix)
+    return matrix
+
+
+def func_6():
+    for _ in range(100):
+        print(random.randint(1000000, 9999999))
+
+
 def func_8():
     k = 0
     for i in range(10 ** 6):
