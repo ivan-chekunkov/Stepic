@@ -76,6 +76,30 @@ def func_6():
         print(random.randint(1000000, 9999999))
 
 
+def func_7():
+    word = list(input())
+    random.shuffle(word)
+    print(*word, sep='')
+
+
+def bingo():
+    throws = 0
+    board = []
+    while throws < 25:
+        num = random.randint(1, 75)
+        if num in board:
+            continue
+        board.append(num)
+        throws += 1
+    board[12] = 0
+    position = 0
+    for _ in range(5):
+        for _ in range(5):
+            print(board[position], end=' ')
+            position += 1
+        print()
+
+
 def func_8():
     k = 0
     for i in range(10 ** 6):
