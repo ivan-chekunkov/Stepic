@@ -100,6 +100,13 @@ def bingo():
         print()
 
 
+def secret_friend():
+    friends = [input() for _ in range(int(input()))]
+    random.shuffle(friends)
+    for friend in range(len(friends)):
+        print(f'{friends[friend]} - {friends[(friend + 1) % len(friends)]}')
+
+
 def func_8():
     k = 0
     for i in range(10 ** 6):
