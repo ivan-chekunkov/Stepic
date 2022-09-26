@@ -107,6 +107,27 @@ def secret_friend():
         print(f'{friends[friend]} - {friends[(friend + 1) % len(friends)]}')
 
 
+def password_generator_1():
+    mass_str = string.ascii_letters + string.digits
+
+    def generate_password(length):
+        bad_char = 'lI10Oo'
+        result = ''
+        while len(result) < length:
+            char = random.choice(mass_str)
+            if char in bad_char:
+                continue
+            result += char
+        return result
+
+    def generate_passwords(count, length):
+        for _ in range(count):
+            print(generate_password(length))
+
+    count, length = int(input()), int(input())
+    generate_passwords(count, length)
+
+
 def func_8():
     k = 0
     for i in range(10 ** 6):
