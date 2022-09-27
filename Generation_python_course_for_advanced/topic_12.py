@@ -128,6 +128,34 @@ def password_generator_1():
     generate_passwords(count, length)
 
 
+def password_generator_2():
+    mass_str = string.ascii_letters + string.digits
+
+    def generate_password(length):
+        bad_char = 'lI10Oo'
+        result = ''
+        while len(result) < length:
+            if len(result) == 0:
+                char = random.choice(string.ascii_lowercase)
+            elif len(result) == 1:
+                char = random.choice(string.ascii_uppercase)
+            elif len(result) == 2:
+                char = random.choice(string.digits)
+            else:
+                char = random.choice(mass_str)
+            if char in bad_char:
+                continue
+            result += char
+        return result
+
+    def generate_passwords(count, length):
+        for _ in range(count):
+            print(generate_password(length))
+
+    count, length = int(input()), int(input())
+    generate_passwords(count, length)
+
+
 def func_8():
     k = 0
     for i in range(10 ** 6):
