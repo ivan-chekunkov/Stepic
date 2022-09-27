@@ -158,7 +158,7 @@ def password_generator_2():
 
 def func_8():
     k = 0
-    for i in range(10 ** 6):
+    for _ in range(10 ** 6):
         x = random.uniform(-2, 2)
         y = random.uniform(-2, 2)
         if x ** 3 + y ** 4 + 2 >= 0 and 3 * x + y ** 2 <= 2:
@@ -168,7 +168,7 @@ def func_8():
 
 def func_9():
     k = 0
-    for i in range(10 ** 6):
+    for _ in range(10 ** 6):
         x = random.uniform(-1, 1)
         y = random.uniform(-1, 1)
         if x ** 2 + y ** 2 <= 1:
