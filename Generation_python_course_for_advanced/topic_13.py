@@ -3,6 +3,21 @@ from fractions import Fraction
 from math import factorial, gcd
 
 
+def func_1():
+    num = Decimal(input())
+    a = num.as_tuple().digits
+    if - 1 < num < 1:
+        print(max(a))
+    else:
+        print(min(a) + max(a))
+
+
+def mathematical_expression():
+    num = Decimal(input())
+    result = num.exp() + num.ln() + num.log10() + num.sqrt()
+    print(result)
+
+
 def conjugate_numbers():
     n = int(input())
     z1 = complex(input())
