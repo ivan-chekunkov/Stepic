@@ -14,5 +14,4 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAM_TO }}
         token: ${{ secrets.TELEGRAM_TOKEN }}
-        message: ${{ github.workflow }} для репозитория ${{ github.repository }} успешно выполнен! ${{ github.sha }} - выполнен!
-        message: ${{ github.event.commit }} - ${{ job.status }}
+        message: ${{ github.workflow }} для репозитория ${{ github.repository }} успешно выполнен! ${{ github.sha }} - выполнен! ${{ github.event.commit }} - ${{ job.status }}
