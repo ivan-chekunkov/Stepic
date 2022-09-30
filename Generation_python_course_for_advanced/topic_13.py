@@ -18,6 +18,23 @@ def mathematical_expression():
     print(result)
 
 
+def shorten_the_fraction():
+    num_1 = int(input())
+    num_2 = int(input())
+    print(Fraction(num_1, num_2))
+
+
+def operations_on_fractions():
+    s1 = input()
+    s2 = input()
+    n1 = Fraction(s1)
+    n2 = Fraction(s2)
+    print(f'{s1} + {s2} = {n1 + n2}')
+    print(f'{s1} - {s2} = {n1 - n2}')
+    print(f'{s1} * {s2} = {n1 * n2}')
+    print(f'{s1} / {s2} = {n1 / n2}')
+
+
 def conjugate_numbers():
     n = int(input())
     z1 = complex(input())
