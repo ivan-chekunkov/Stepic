@@ -35,6 +35,22 @@ def operations_on_fractions():
     print(f'{s1} / {s2} = {n1 / n2}')
 
 
+def sum_of_fractions_1():
+    num = int(input())
+    result = Fraction(0)
+    for index in range(1, num + 1):
+        result += Fraction(1, index ** 2)
+    print(result)
+
+
+def sum_of_fractions_2():
+    num = int(input())
+    result = Fraction(0)
+    for index in range(1, num + 1):
+        result += Fraction(1, factorial(index))
+    print(result)
+
+
 def conjugate_numbers():
     n = int(input())
     z1 = complex(input())
