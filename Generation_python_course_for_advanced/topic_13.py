@@ -51,6 +51,26 @@ def sum_of_fractions_2():
     print(result)
 
 
+def young_mathematician():
+    num = int(input())
+    for numerator in range(num // 2, 0, -1):
+        denominator = num - numerator
+        if gcd(denominator, numerator) == 1:
+            return Fraction(numerator, denominator)
+        if numerator == 1:
+            return Fraction(numerator, denominator)
+
+
+def ordered_fractions():
+    num = int(input())
+    nums = set()
+    for i in range(1, num):
+        for j in range(i + 1, num + 1):
+            nums.add(Fraction(i, j))
+    result = sorted(nums)
+    print(*result, sep='\n')
+
+
 def conjugate_numbers():
     n = int(input())
     z1 = complex(input())
