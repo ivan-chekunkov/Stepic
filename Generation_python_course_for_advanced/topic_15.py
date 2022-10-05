@@ -24,3 +24,20 @@ def mean(*args):
     if count == 0:
         return 0
     return(summ / count)
+
+
+def greet(name, *args):
+    result = 'Hello, '
+    result += name
+    for i in args:
+        result += ' and '+i
+    result += '!'
+    return result
+
+
+def print_products(*args):
+    ls = [i for i in args if type(i) == str and i not in ('', ' ')]
+    print(
+        '\n'.join([f'{num}) {i}' for num, i in enumerate(ls, 1)])
+        if ls else 'Нет продуктов'
+    )
