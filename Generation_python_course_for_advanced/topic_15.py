@@ -41,3 +41,22 @@ def print_products(*args):
         '\n'.join([f'{num}) {i}' for num, i in enumerate(ls, 1)])
         if ls else 'Нет продуктов'
     )
+
+
+def info_kwargs(**kwargs):
+    for k, v in sorted(kwargs.items()):
+        print(f'{k}: {v}')
+
+
+def compar_1(pair):
+    return sum(pair)/len(pair)
+
+
+def func_1():
+    numbers = [
+        (10, 10, 10), (30, 45, 56), (81, 39), (1, 2, 3), (12,), (-2, -4, 100),
+        (1, 2, 99), (89, 9, 34), (10, 20, 30, -2), (50, 40, 50), (34, 78, 65),
+        (-5, 90, -1, -5), (1, 2, 3, 4, 5, 6), (-9, 8, 4), (90, 1, -45, -21)
+    ]
+    print(min(numbers, key=compar_1))
+    print(max(numbers, key=compar_1))
