@@ -60,3 +60,16 @@ def func_1():
     ]
     print(min(numbers, key=compar_1))
     print(max(numbers, key=compar_1))
+
+
+def compar_2(pair):
+    return math.sqrt(pair[0]**2+pair[1]**2)
+
+
+def func_2():
+    points = [
+        (-1, 1), (5, 6), (12, 0), (4, 3), (0, 1), (-3, 2), (0, 0), (-1, 3),
+        (2, 0), (3, 0), (-9, 1), (3, 6), (8, 8)
+    ]
+    points.sort(key=compar_2)
+    print(points)
