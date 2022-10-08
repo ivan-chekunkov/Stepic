@@ -87,3 +87,34 @@ def func_3():
     ]
     numbers.sort(key=compar_3)
     print(numbers)
+
+
+def sort_it_as_you_want():
+    athletes = [
+        ('Дима', 10, 130, 35), ('Тимур', 11, 135, 39), ('Руслан', 9, 140, 33),
+        ('Рустам', 10, 128, 30), ('Амир', 16, 170, 70), ('Рома', 16, 188, 100),
+        ('Матвей', 17, 168, 68), ('Петя', 15, 190, 90)
+    ]
+    num = input()
+
+    def compar_name(pair):
+        return pair[0]
+
+    def compar_age(pair):
+        return pair[1]
+
+    def compar_lenth(pair):
+        return pair[2]
+
+    def compar_weith(pair):
+        return pair[3]
+
+    commands = {
+        '1': compar_name,
+        '2': compar_age,
+        '3': compar_lenth,
+        '4': compar_weith,
+    }
+    athletes.sort(key=commands[num])
+    for i in athletes:
+        print(*i)
