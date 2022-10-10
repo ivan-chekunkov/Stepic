@@ -118,3 +118,27 @@ def sort_it_as_you_want():
     athletes.sort(key=commands[num])
     for i in athletes:
         print(*i)
+
+
+def mathematical_functions():
+
+    def f1(x):
+        return x**2
+
+    def f2(x):
+        return x**3
+
+    def f3(x):
+        return x**0.5
+
+    def f4(x):
+        return abs(x)
+
+    def f5(x):
+        return math.sin(x)
+
+    commands = {'квадрат': f1, 'куб': f2,
+                'корень': f3, 'модуль': f4, 'синус': f5}
+    i = int(input())
+    c = input()
+    print(commands[c](i))
