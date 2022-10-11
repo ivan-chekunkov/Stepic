@@ -142,3 +142,31 @@ def mathematical_functions():
     i = int(input())
     c = input()
     print(commands[c](i))
+
+
+def interesting_sorting_1():
+
+    def f1(x):
+        s = 0
+        for c in x:
+            s += int(c)
+        return s
+
+    mas = input().split()
+    mas.sort(key=f1)
+    print(*mas)
+
+
+def interesting_sorting_2():
+
+    def f1(x):
+        s = 0
+        for c in x:
+            s += int(c)
+        return s
+
+    mas = [int(i) for i in input().split()]
+    mas.sort()
+    mas = [str(i) for i in mas]
+    mas.sort(key=f1)
+    print(*mas)
