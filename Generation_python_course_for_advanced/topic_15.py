@@ -285,3 +285,10 @@ def higher_order_functions_4():
         123, -105
     ]
     print(sum(map(q, filter(f, numbers))))
+
+
+def func_apply(func, nums):
+    result = []
+    for n in nums:
+        result.append(func(n))
+    return result
