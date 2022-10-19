@@ -340,3 +340,18 @@ def anonymous_functions_2():
     r = list(map(lambda x: x[0], s))
     t = 'Cities: ' + reduce(lambda c1, c2: f'{c1}, {c2}', r)
     print(t)
+
+
+def anonymous_functions_group():
+
+    def func_1(x): return True if x % 13 == 0 or x % 19 == 0 else False
+
+    def func_2(x): return True if x[0].lower(
+    ) == 'a' and x[-1].lower() == 'a' else False
+
+    def is_non_negative_num(x): return True if x.replace(
+        '.', '').isdigit() and x.count('.') < 2 and float(x) >= 0 else False
+
+    def is_num(x): return x.replace('.', '', 1).replace(
+        '-', '', 1).isdigit() and x[1:].count('-') == 0
+
