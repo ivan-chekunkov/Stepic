@@ -355,3 +355,16 @@ def anonymous_functions_group():
     def is_num(x): return x.replace('.', '', 1).replace(
         '-', '', 1).isdigit() and x[1:].count('-') == 0
 
+
+def anonymous_functions_3():
+    words = [
+        'beverage', 'monday', 'abroad', 'bias', 'abuse', 'abolish', 'abuse',
+        'abuse', 'bid', 'wednesday', 'able', 'betray', 'accident', 'abduct',
+        'bigot', 'bet', 'abandon', 'besides', 'access', 'friday', 'bestow',
+        'abound', 'absent', 'beware', 'abundant', 'abnormal', 'aboard',
+        'about', 'accelerate', 'abort', 'thursday', 'tuesday', 'sunday',
+        'berth', 'beyond', 'benevolent', 'abate', 'abide', 'bicycle',
+        'beside', 'accept', 'berry', 'bewilder', 'abrupt', 'saturday',
+        'accessory', 'absorb'
+    ]
+    print(*filter(lambda x: len(x) == 6, sorted(words)), sep=' ')
