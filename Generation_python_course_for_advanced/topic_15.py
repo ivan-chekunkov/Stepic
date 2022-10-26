@@ -463,3 +463,11 @@ def the_value_of_the_polynomial():
         return (result)
 
     print(evaluate(input(), input()))
+
+
+def ignore_command(command):
+    ignore = [
+        'alias', 'configuration', 'ip', 'sql', 'select',
+        'update', 'exec', 'del', 'truncate'
+    ]
+    return any(map(lambda x: x in command, ignore))
