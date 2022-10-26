@@ -443,3 +443,7 @@ def anonymous_functions_8():
     ]
     result = sorted(mixed_list, key=(lambda x: (not (isinstance(x, int)), x)))
     print(*result)
+
+
+def opposite_color():
+    print(*map(lambda x: 255 - x, map(int, input().split())))
