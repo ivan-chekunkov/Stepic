@@ -447,3 +447,19 @@ def anonymous_functions_8():
 
 def opposite_color():
     print(*map(lambda x: 255 - x, map(int, input().split())))
+
+
+def the_value_of_the_polynomial():
+
+    def evaluate(coefficients, x):
+        mas = tuple(map(int, coefficients.split()))
+        x = int(x)
+        mas2 = []
+        k = 0
+        for i in mas[::-1]:
+            mas2.append(i * x**k)
+            k += 1
+        result = reduce(lambda x, y: x + y, mas2)
+        return (result)
+
+    print(evaluate(input(), input()))
