@@ -481,3 +481,12 @@ def population_city():
     for cap, city, popl in zip(countries, capitals, population):
         print(f'{city} is the capital of {cap}, '
               f'population equal {popl} people.')
+
+
+def inside_the_ball():
+    abscissas = map(float, input().split())
+    ordinates = map(float, input().split())
+    applicates = map(float, input().split())
+    dotes = tuple(zip(abscissas, ordinates, applicates))
+    r2 = 2**2
+    print(all((d[0]**2 + d[1]**2 + d[2]**2) <= r2 for d in dotes))
