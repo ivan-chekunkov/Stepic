@@ -490,3 +490,7 @@ def inside_the_ball():
     dotes = tuple(zip(abscissas, ordinates, applicates))
     r2 = 2**2
     print(all((d[0]**2 + d[1]**2 + d[2]**2) <= r2 for d in dotes))
+
+
+def correct_ip_address():
+    print(all(i.isdigit() and -1 < int(i) < 256 for i in input().split('.')))
