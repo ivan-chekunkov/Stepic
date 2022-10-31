@@ -494,3 +494,14 @@ def inside_the_ball():
 
 def correct_ip_address():
     print(all(i.isdigit() and -1 < int(i) < 256 for i in input().split('.')))
+
+
+def interesting_numbers():
+    a = int(input())
+    b = int(input())
+    result = []
+    nums = range(a, b + 1, 1)
+    for n in nums:
+        if all(map(lambda x: int(x) and not n % int(x), str(n))):
+            result.append(n)
+    print(*result)
