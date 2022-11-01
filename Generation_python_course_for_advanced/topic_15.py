@@ -505,3 +505,16 @@ def interesting_numbers():
         if all(map(lambda x: int(x) and not n % int(x), str(n))):
             result.append(n)
     print(*result)
+
+
+def a_good_password():
+    word = input()
+    if all([
+        any(map(lambda x: x.islower(), word)),
+        any(map(lambda x: x.isupper(), word)),
+        any(map(lambda x: x.isdigit(), word)),
+        len(word) > 6
+    ]):
+        print('YES')
+    else:
+        print('NO')
