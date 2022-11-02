@@ -518,3 +518,52 @@ def a_good_password():
         print('YES')
     else:
         print('NO')
+
+
+def honors_students():
+    all_class = []
+    for _ in range(int(input())):
+        students = []
+        for _ in range(int(input())):
+            students.append(int(input().split()[1]) == 5)
+        all_class.append(any(students))
+    print(('NO', 'YES')[all(all_class)])
+
+
+if __name__ == '__main__':
+    honors_students()
+    # a_good_password()
+    # interesting_numbers()
+    # correct_ip_address()
+    # inside_the_ball()
+    # population_city()
+    # print(ignore_command('select all'))
+    # the_value_of_the_polynomial()
+    # opposite_color()
+    # anonymous_functions_8()
+    # anonymous_functions_7()
+    # anonymous_functions_6()
+    # anonymous_functions_5()
+    # anonymous_functions_4()
+    # anonymous_functions_3()
+    # anonymous_functions_group()
+    # anonymous_functions_2()
+    # anonymous_functions_1()
+    # higher_order_functions_4()
+    # higher_order_functions_3()
+    # higher_order_functions_2()
+    # higher_order_functions_1()
+    # interesting_sorting_2()
+    # interesting_sorting_1()
+    # mathematical_functions()
+    # sort_it_as_you_want()
+    # func_3()
+    # func_2()
+    # func_1()
+    # info_kwargs(first_name='Timur', last_name='Guev', age=28, job='teacher')
+    # print_products('Бананы', [1, 2], ('Stepik',),
+    #                'Яблоки', '', 'Макароны', 5, True)
+    # print(greet('Timur', 'Roman', 'Ruslan'))
+    # print(mean(1.5, True, ['stepik'], 'beegeek', 2.5, (1, 2)))
+    # print(matrix(3, 4, 9))
+    pass
