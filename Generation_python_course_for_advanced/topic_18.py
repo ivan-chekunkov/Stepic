@@ -20,3 +20,18 @@ def total_cost():
             coast = int(line.rstrip('\n')[1:])
             summary += coast
         print(f'${summary}')
+
+
+def goooood_students():
+    with open(FILES_DIR + 'grades.txt', 'r') as file:
+        lines = file.readlines()
+        result = 0
+        for line in lines:
+            _, *scores = line.rstrip('\n').split()
+            scores = list(map(int, scores))
+            for score in scores:
+                if score < 65:
+                    break
+            else:
+                result += 1
+        print(result)
