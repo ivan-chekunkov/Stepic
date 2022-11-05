@@ -10,3 +10,13 @@ def number_of_lines_in_the_file():
     with open(FILES_DIR + name, 'r') as file:
         lines = file.readlines()
         print(len(lines))
+
+
+def total_cost():
+    with open(FILES_DIR + 'ledger.txt', 'r') as file:
+        lines = file.readlines()
+        summary = 0
+        for line in lines:
+            coast = int(line.rstrip('\n')[1:])
+            summary += coast
+        print(f'${summary}')
