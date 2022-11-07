@@ -35,3 +35,16 @@ def goooood_students():
             else:
                 result += 1
         print(result)
+
+
+def the_longest_word_in_the_file():
+    with open(FILES_DIR + 'words.txt', 'r') as file:
+        line = file.read()
+        words = line.split()
+        max_lenth = 0
+        for word in words:
+            if len(word) > max_lenth:
+                max_lenth = len(word)
+        for word in words:
+            if len(word) == max_lenth:
+                print(word)
