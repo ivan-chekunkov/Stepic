@@ -48,3 +48,15 @@ def the_longest_word_in_the_file():
         for word in words:
             if len(word) == max_lenth:
                 print(word)
+
+
+def tail_of_a_file():
+    name = input()
+    with open(FILES_DIR + name, 'r') as file:
+        lines = file.readlines()
+        if len(lines) < 10:
+            for line in lines:
+                print(line.rstrip())
+        else:
+            for index in range(len(lines) - 10, len(lines)):
+                print(lines[index].rstrip())
