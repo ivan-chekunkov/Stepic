@@ -60,3 +60,13 @@ def tail_of_a_file():
         else:
             for index in range(len(lines) - 10, len(lines)):
                 print(lines[index].rstrip())
+
+
+def forbidden_words():
+    with open(FILES_DIR + 'forbidden_words.txt', 'r') as file:
+        forbidden_words = file.read().split()
+    with open(FILES_DIR + 'stepik.txt', 'r') as file:
+        text = file.read()
+        for word in forbidden_words:
+            text = re.sub(word, "*" * len(word), text, flags=re.I | re.M)
+        print(text)
