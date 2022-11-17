@@ -97,3 +97,35 @@ def transliteration():
     with open(FILES_DIR + 'transliteration.txt', 'w',
               encoding='UTF-8') as file:
         file.write(result)
+
+
+def missed_comments():
+    with open(FILES_DIR + 'func.txt', 'r') as file:
+        lines = file.readlines()
+        there_is_comment = False
+        best_team = True
+        for line in lines:
+            if line.startswith('#'):
+                there_is_comment = True
+                continue
+            if line.startswith('def ') and there_is_comment:
+                there_is_comment = False
+                continue
+            if line.startswith('def '):
+                name = line[3:].split('(')[0]
+                print(name)
+                best_team = False
+        if best_team:
+            print('Best Programming Team')
+
+
+if __name__ == '__main__':
+    missed_comments()
+    # transliteration()
+    # forbidden_words()
+    # tail_of_a_file()
+    # the_longest_word_in_the_file()
+    # goooood_students()
+    # total_cost()
+    # number_of_lines_in_the_file()
+    pass
