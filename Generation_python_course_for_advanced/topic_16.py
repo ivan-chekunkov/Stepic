@@ -12,3 +12,10 @@ def generate_letter(
     result += f'Экзамен будет проводить {teacher} в кабинете {number}.\n'
     result += 'Желаем удачи на экзамене!'
     return result
+
+
+def pretty_print(data, side='-', delimiter='|'):
+    line = f" {delimiter} ".join(map(str, data))
+    print(' ' + side * (2 + len(line)))
+    print(delimiter + ' ' + line + ' ' + delimiter)
+    print(' ' + side * (2 + len(line)))
