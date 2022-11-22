@@ -19,3 +19,7 @@ def pretty_print(data, side='-', delimiter='|'):
     print(' ' + side * (2 + len(line)))
     print(delimiter + ' ' + line + ' ' + delimiter)
     print(' ' + side * (2 + len(line)))
+
+
+def concat(*args, sep=' '):
+    return reduce(lambda x, y: str(x) + sep + str(y), args)
