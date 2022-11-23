@@ -23,3 +23,7 @@ def pretty_print(data, side='-', delimiter='|'):
 
 def concat(*args, sep=' '):
     return reduce(lambda x, y: str(x) + sep + str(y), args)
+
+
+def product_of_odds(data):
+    return reduce(lambda x, y: x * y if y % 2 == 1 else x, data, 1)
