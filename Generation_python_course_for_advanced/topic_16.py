@@ -27,3 +27,14 @@ def concat(*args, sep=' '):
 
 def product_of_odds(data):
     return reduce(lambda x, y: x * y if y % 2 == 1 else x, data, 1)
+
+
+def gepatr():
+    result = {}
+    for _ in range(int(input())):
+        word = input()
+        gep = reduce(lambda x, y: x + ord(y), word.upper(), 0) - len(word) * 65
+        result[word] = int(gep)
+    res = sorted(result)
+    otv = sorted(res, key=lambda x: result.get(x))
+    print(*otv, sep='\n')
