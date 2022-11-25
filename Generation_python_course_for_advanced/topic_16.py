@@ -38,3 +38,25 @@ def gepatr():
     res = sorted(result)
     otv = sorted(res, key=lambda x: result.get(x))
     print(*otv, sep='\n')
+
+
+def sort_ip():
+    result = {}
+    for _ in range(int(input())):
+        ip = input()
+        ip_nums = tuple(map(int, ip.split('.')))
+        gep = ip_nums[0] * 256 ** 3 + ip_nums[1] * \
+            256 ** 2 + ip_nums[2] * 256 + ip_nums[3]
+        result[ip] = gep
+    res = sorted(result, key=lambda x: result.get(x))
+    print(*res, sep='\n')
+
+
+if __name__ == '__main__':
+    sort_ip()
+    # gepatr()
+    # print(concat('hello', 'python', 'and', 'stepik', sep='*'))
+    # pretty_print(['abc', 'def', 'ghi'], side='*', delimiter='#')
+    # print(generate_letter('lara@yandex.ru', 'Лариса',
+    #       '10 декабря', '12:00', 'Часова 23, корпус 2'))
+    pass
