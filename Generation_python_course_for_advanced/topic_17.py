@@ -11,3 +11,13 @@ def random_string():
     file.close()
     zerno = randrange(len(lines))
     print(lines[zerno])
+
+
+def the_sum_of_two_is_1():
+    text = open(FILES_DIR + 'numbers.txt')
+    count = 0
+    for num in text:
+        num.rstrip()
+        count += int(num)
+    print(count)
+    text.close()
