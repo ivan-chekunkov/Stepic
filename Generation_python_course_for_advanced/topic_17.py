@@ -32,3 +32,14 @@ def the_sum_of_two_is_2():
     print(sum)
 
     text.close()
+
+
+def total_cost():
+    text = open(FILES_DIR + 'prices.txt')
+    sum = 0
+    lines = text.readlines()
+    for line in lines:
+        price = line.split('\t')
+        sum += int(price[-1]) * int(price[-2])
+    print(sum)
+    text.close()
