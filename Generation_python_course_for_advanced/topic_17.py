@@ -21,3 +21,14 @@ def the_sum_of_two_is_1():
         count += int(num)
     print(count)
     text.close()
+
+
+def the_sum_of_two_is_2():
+    text = open(FILES_DIR + 'nums.txt')
+    sum = 0
+    nums = text.read().split()
+    for num in nums:
+        sum += int(num)
+    print(sum)
+
+    text.close()
