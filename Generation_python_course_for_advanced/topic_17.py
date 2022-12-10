@@ -1,4 +1,5 @@
 import os
+import re
 from random import randrange, choice
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -43,3 +44,8 @@ def total_cost():
         sum += int(price[-1]) * int(price[-2])
     print(sum)
     text.close()
+
+
+def flipping_a_line():
+    with open(FILES_DIR + 'text.txt') as file:
+        print(file.read()[::-1])
