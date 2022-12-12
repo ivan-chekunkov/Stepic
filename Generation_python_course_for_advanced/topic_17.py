@@ -49,3 +49,11 @@ def total_cost():
 def flipping_a_line():
     with open(FILES_DIR + 'text.txt') as file:
         print(file.read()[::-1])
+
+
+def reverse_order():
+    with open(FILES_DIR + 'data.txt') as file:
+        lines = file.readlines()
+        for i in range(len(lines)-1, -1, -1):
+            line = lines[i]
+            print(line, end='')
