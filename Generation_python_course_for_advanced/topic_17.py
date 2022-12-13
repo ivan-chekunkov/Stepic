@@ -54,6 +54,15 @@ def flipping_a_line():
 def reverse_order():
     with open(FILES_DIR + 'data.txt') as file:
         lines = file.readlines()
-        for i in range(len(lines)-1, -1, -1):
+        for i in range(len(lines) - 1, -1, -1):
             line = lines[i]
             print(line, end='')
+
+
+def long_lines():
+    with open(FILES_DIR + 'lines2.txt') as fil:
+        lines = fil.readlines()
+        lenth = len(max(lines, key=len))
+        for line in lines:
+            if len(line) == lenth:
+                print(line, end='')
