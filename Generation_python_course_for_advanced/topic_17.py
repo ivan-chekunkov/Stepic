@@ -66,3 +66,10 @@ def long_lines():
         for line in lines:
             if len(line) == lenth:
                 print(line, end='')
+
+
+def the_sum_of_the_numbers_in_the_rows():
+    with open(FILES_DIR + 'numbers2.txt') as fil:
+        lines = fil.readlines()
+        for line in lines:
+            print(sum([int(y) for y in line.split()]))
