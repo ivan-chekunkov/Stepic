@@ -73,3 +73,9 @@ def the_sum_of_the_numbers_in_the_rows():
         lines = fil.readlines()
         for line in lines:
             print(sum([int(y) for y in line.split()]))
+
+
+def the_sum_of_the_numbers_in_the_file():
+    with open(FILES_DIR + 'nums2.txt') as file:
+        text = file.read()
+    print(sum(map(int, re.findall(r'\d+', text))))
