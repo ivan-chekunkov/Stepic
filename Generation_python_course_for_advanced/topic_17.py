@@ -79,3 +79,22 @@ def the_sum_of_the_numbers_in_the_file():
     with open(FILES_DIR + 'nums2.txt') as file:
         text = file.read()
     print(sum(map(int, re.findall(r'\d+', text))))
+
+
+def file_statistics():
+    with open(FILES_DIR + 'file.txt') as file:
+        lines = file.readlines()
+        c_lines = len(lines)
+        c_letters = 0
+        c_words = 0
+        for line in lines:
+            line_m = list(i.rstrip() for i in line.split())
+            for word in line_m:
+                c_words += 1
+                for char in word:
+                    if char.isalpha():
+                        c_letters += 1
+    print('Input file contains:')
+    print(f'{c_letters} letters')
+    print(f'{c_words} words')
+    print(f'{c_lines} lines')
