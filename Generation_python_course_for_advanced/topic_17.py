@@ -98,3 +98,12 @@ def file_statistics():
     print(f'{c_letters} letters')
     print(f'{c_words} words')
     print(f'{c_lines} lines')
+
+
+def random_name_and_surname():
+    with open(FILES_DIR + 'first_names.txt') as file:
+        first_names = list(map(str.strip, file.read().split()))
+    with open(FILES_DIR + 'last_names.txt') as file:
+        last_names = list(map(str.strip, file.read().split()))
+    for _ in range(3):
+        print(choice(first_names), choice(last_names))
