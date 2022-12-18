@@ -116,3 +116,20 @@ def unusual_countries():
         title, population = line.strip().split('\t')
         if int(population) > 500000 and title[0] == 'G':
             print(title)
+
+
+def read_csv():
+    result = []
+    with open(FILES_DIR + 'data.csv', 'r') as file:
+        name_dict = file.readline().strip().split(',')
+        lines = file.readlines()
+        for line in lines:
+            words = line.split(',')
+            temp = {}
+            step = 0
+            for word in words:
+                name = name_dict[step]
+                temp[name] = word.strip()
+                step += 1
+            result.append(temp)
+    return (result)
