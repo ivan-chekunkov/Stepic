@@ -107,3 +107,12 @@ def random_name_and_surname():
         last_names = list(map(str.strip, file.read().split()))
     for _ in range(3):
         print(choice(first_names), choice(last_names))
+
+
+def unusual_countries():
+    with open(FILES_DIR + 'population.txt', 'r') as file:
+        lines = file.readlines()
+    for line in lines:
+        title, population = line.strip().split('\t')
+        if int(population) > 500000 and title[0] == 'G':
+            print(title)
