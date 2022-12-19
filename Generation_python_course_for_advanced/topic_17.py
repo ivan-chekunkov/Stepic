@@ -133,3 +133,12 @@ def read_csv():
                 step += 1
             result.append(temp)
     return (result)
+
+
+def random_numbers():
+    with open(FILES_DIR + 'random.txt', 'w') as file:
+        nums = []
+        for _ in range(25):
+            num = randrange(111, 777)
+            nums.append(str(num)+'\n')
+        file.writelines(nums)
