@@ -142,3 +142,11 @@ def random_numbers():
             num = randrange(111, 777)
             nums.append(str(num)+'\n')
         file.writelines(nums)
+
+
+def line_numbering():
+    with open(FILES_DIR + 'input.txt', 'r') as file:
+        lines = file.readlines()
+    with open(FILES_DIR + 'output2.txt', 'w') as out:
+        for index, line in enumerate(lines, start=1):
+            out.write(f'{index}) {line}')
