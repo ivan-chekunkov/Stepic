@@ -162,3 +162,29 @@ def a_gift_for_the_new_year():
             if score > 100:
                 score = 100
             file.write(f'{name} {score}\n')
+
+
+def the_riddle_by_jacques_fresco():
+    with open(FILES_DIR + 'goats.txt', 'r') as file:
+        lines = file.readlines()
+    colors = []
+    goats = {}
+    goat = False
+    count_goats = 0
+    for line in lines:
+        line = line.rstrip('\n')
+        if line == 'COLOURS':
+            continue
+        if line == 'GOATS':
+            goat = True
+            continue
+        if goat:
+            goats[line] = goats.get(line, 0) + 1
+            count_goats += 1
+            continue
+        colors.append(line)
+    goats = dict(sorted(goats.items(), key=lambda x: x[0]))
+    with open(FILES_DIR + 'answer.txt', 'w') as file:
+        for key, value in goats.items():
+            if int(value / count_goats * 100) > 7:
+                file.write(f'{key}\n')
