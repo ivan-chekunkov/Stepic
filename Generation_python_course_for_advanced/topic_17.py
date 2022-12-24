@@ -188,3 +188,12 @@ def the_riddle_by_jacques_fresco():
         for key, value in goats.items():
             if int(value / count_goats * 100) > 7:
                 file.write(f'{key}\n')
+
+
+def file_concatenation():
+    with open(FILES_DIR + 'output_all_files.txt', 'w') as file:
+        for _ in range(int(input())):
+            name = input()
+            with open(name, 'r') as text:
+                lines = text.readlines()
+            file.writelines(lines)
