@@ -197,3 +197,38 @@ def file_concatenation():
             with open(name, 'r') as text:
                 lines = text.readlines()
             file.writelines(lines)
+
+
+def log_file():
+    with open(FILES_DIR + 'logfile.txt', 'r', encoding='UTF-8') as file:
+        lines = file.readlines()
+    with open(FILES_DIR + 'output.txt', 'w') as file:
+        for line in lines:
+            name, data_in, data_out = line.rstrip('\n').split(', ')
+            minutes_in = int(data_in[:2]) * 60 + int(data_in[3:])
+            minutes_out = int(data_out[:2]) * 60 + int(data_out[3:])
+            if minutes_out - minutes_in >= 60:
+                file.write(f'{name}\n')
+
+
+if __name__ == '__main__':
+    file_concatenation()
+    # line_numbering()
+    # random_numbers()
+    # print(read_csv())
+    # unusual_countries()
+    # random_name_and_surname()
+    # file_statistics()
+    # the_sum_of_the_numbers_in_the_file()
+    # the_sum_of_the_numbers_in_the_rows()
+    # long_lines()
+    # reverse_order()
+    # flipping_a_line()
+    # total_cost()
+    # the_sum_of_two_is_2()
+    # the_sum_of_two_is_1()
+    # random_string()
+    # log_file()
+    # the_riddle_by_jacques_fresco()
+    # a_gift_for_the_new_year()
+    pass
