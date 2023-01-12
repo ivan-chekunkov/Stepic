@@ -11,3 +11,10 @@ def hide_card(card_number: str) -> str:
 
 def same_parity(numbers: list) -> list:
     return list(filter(lambda x: (x-numbers[0]) % 2 == 0, numbers))
+
+
+def is_valid(string: str) -> bool:
+    if len(string) in (4, 5, 6):
+        if string.isnumeric():
+            return True
+    return False
