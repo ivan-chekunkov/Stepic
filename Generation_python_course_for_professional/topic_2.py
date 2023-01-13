@@ -25,3 +25,17 @@ def print_given(*args, **kwargs) -> None:
         print(arg, type(arg))
     for key, value in sorted(kwargs.items()):
         print(key, value, type(value))
+
+
+def convert(string: str) -> str:
+    flag_lower, flag_upper = 0, 0
+    for char in string:
+        if char.isalpha():
+            if char.isupper():
+                flag_upper += 1
+            else:
+                flag_lower += 1
+    if flag_lower >= flag_upper:
+        return string.lower()
+    else:
+        return string.upper()
