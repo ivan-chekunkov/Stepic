@@ -18,3 +18,10 @@ def is_valid(string: str) -> bool:
         if string.isnumeric():
             return True
     return False
+
+
+def print_given(*args, **kwargs) -> None:
+    for arg in args:
+        print(arg, type(arg))
+    for key, value in sorted(kwargs.items()):
+        print(key, value, type(value))
