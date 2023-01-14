@@ -39,3 +39,11 @@ def convert(string: str) -> str:
         return string.lower()
     else:
         return string.upper()
+
+
+def filter_anagrams(word: str, words: list) -> list:
+    result = []
+    for word_in_list in words:
+        if sorted(word_in_list) == sorted(word):
+            result.append(word_in_list)
+    return result
