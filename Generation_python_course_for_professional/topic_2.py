@@ -47,3 +47,18 @@ def filter_anagrams(word: str, words: list) -> list:
         if sorted(word_in_list) == sorted(word):
             result.append(word_in_list)
     return result
+
+
+def likes(names: list) -> str:
+    if len(names) == 0:
+        return f'Никто не оценил данную запись'
+    if len(names) == 1:
+        return f'{names[0]} оценил(а) данную запись'
+    if len(names) == 2:
+        return f'{names[0]} и {names[1]} оценили данную запись'
+    if len(names) == 3:
+        return f'{names[0]}, {names[1]} и {names[2]} оценили данную запись'
+    if len(names) > 3:
+        return (f'{names[0]}, {names[1]} и {len(names)-2} '
+                f'других оценили данную запись')
+    return 'Ошибка значения'
