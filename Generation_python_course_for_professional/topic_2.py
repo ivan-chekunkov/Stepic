@@ -62,3 +62,14 @@ def likes(names: list) -> str:
         return (f'{names[0]}, {names[1]} и {len(names)-2} '
                 f'других оценили данную запись')
     return 'Ошибка значения'
+
+
+def test_likes() -> None:
+    print(likes([]))
+    print(likes(['Тимур']))
+    print(likes(['Тимур', 'Артур']))
+    print(likes(['Тимур', 'Артур', 'Руслан']))
+    print(likes(['Тимур', 'Артур', 'Руслан', 'Анри']))
+    print(likes(['Тимур', 'Артур', 'Руслан', 'Анри', 'Дима']))
+    print(likes(['Тимур', 'Артур', 'Руслан',
+          'Анри', 'Дима', 'Рома', 'Гвидо', 'Марк']))
