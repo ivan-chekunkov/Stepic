@@ -73,3 +73,12 @@ def test_likes() -> None:
     print(likes(['Тимур', 'Артур', 'Руслан', 'Анри', 'Дима']))
     print(likes(['Тимур', 'Артур', 'Руслан',
           'Анри', 'Дима', 'Рома', 'Гвидо', 'Марк']))
+
+
+def index_of_nearest(numbers: list, number: int) -> int:
+    if not numbers:
+        return -1
+    result = []
+    for num in numbers:
+        result.append(abs(num-number))
+    return result.index(min(result))
