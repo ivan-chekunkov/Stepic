@@ -82,3 +82,12 @@ def index_of_nearest(numbers: list, number: int) -> int:
     for num in numbers:
         result.append(abs(num-number))
     return result.index(min(result))
+
+
+def spell(*args: str) -> dict:
+    result: dict = {}
+    for word in args:
+        char = word[0].lower()
+        if result.get(char, 0) < len(word):
+            result[char] = len(word)
+    return result
