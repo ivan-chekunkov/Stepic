@@ -91,3 +91,19 @@ def spell(*args: str) -> dict:
         if result.get(char, 0) < len(word):
             result[char] = len(word)
     return result
+
+
+def choose_plural(amount: int, declensions: tuple) -> str:
+    index_declensions = {
+        0: (1,),
+        1: (2, 3, 4,),
+        2: (5, 6, 7, 8, 9, 0,),
+    }
+    numbers_end = int(str(amount)[-2:])
+    if numbers_end in (11, 12, 13, 14,):
+        return f'{amount} {declensions[2]}'
+    number_end = int(str(amount)[-1])
+    for key, value in index_declensions.items():
+        if number_end in value:
+            return f'{amount} {declensions[key]}'
+    return 'Ошибка'
