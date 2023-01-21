@@ -107,3 +107,18 @@ def choose_plural(amount: int, declensions: tuple) -> str:
         if number_end in value:
             return f'{amount} {declensions[key]}'
     return 'Ошибка'
+
+
+def get_biggest(numbers: list) -> int:
+    if numbers:
+        result = ''
+        s_nums = list(map(str, numbers))
+        lenth = len(s_nums)
+        for i in range(1, lenth):
+            for j in range(0, lenth-i):
+                if s_nums[j] + s_nums[j+1] > s_nums[j+1] + s_nums[j]:
+                    s_nums[j], s_nums[j+1] = s_nums[j+1], s_nums[j]
+        for num in s_nums[::-1]:
+            result += str(num)
+        return int(result)
+    return -1
