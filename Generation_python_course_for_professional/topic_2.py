@@ -122,3 +122,13 @@ def get_biggest(numbers: list) -> int:
             result += str(num)
         return int(result)
     return -1
+
+
+def similar_letters() -> None:
+    letters = [input() for _ in range(3)]
+    if all(map(lambda x: x in 'АаВСсЕеНКМОоРрТХху', letters)):
+        print('ru')
+    elif all(map(lambda x: x in 'AaBCcEeHKMOoPpTXxy', letters)):
+        print('en')
+    else:
+        print('mix')
