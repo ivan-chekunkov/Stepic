@@ -116,8 +116,8 @@ def get_biggest(numbers: list) -> int:
         lenth = len(s_nums)
         for i in range(1, lenth):
             for j in range(0, lenth-i):
-                if s_nums[j] + s_nums[j+1] > s_nums[j+1] + s_nums[j]:
-                    s_nums[j], s_nums[j+1] = s_nums[j+1], s_nums[j]
+                if s_nums[j] + s_nums[j + 1] > s_nums[j + 1] + s_nums[j]:
+                    s_nums[j], s_nums[j + 1] = s_nums[j + 1], s_nums[j]
         for num in s_nums[::-1]:
             result += str(num)
         return int(result)
@@ -132,3 +132,11 @@ def similar_letters() -> None:
         print('en')
     else:
         print('mix')
+
+
+def upheaval() -> None:
+    n, x, y, a, b = [int(i) for i in input().split()]
+    numbers = list(range(1, n + 1))
+    numbers[x - 1:y] = reversed(numbers[x - 1:y])
+    numbers[a - 1:b] = reversed(numbers[a - 1:b])
+    print(*numbers)
