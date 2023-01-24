@@ -140,3 +140,11 @@ def upheaval() -> None:
     numbers[x - 1:y] = reversed(numbers[x - 1:y])
     numbers[a - 1:b] = reversed(numbers[a - 1:b])
     print(*numbers)
+
+
+def more_than_one() -> None:
+    numbers = [int(i) for i in input().split()]
+    set_numbers = sorted(set(numbers))
+    for num in set_numbers:
+        if numbers.count(num) > 1:
+            print(num, end=' ')
