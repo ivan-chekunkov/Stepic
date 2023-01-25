@@ -148,3 +148,14 @@ def more_than_one() -> None:
     for num in set_numbers:
         if numbers.count(num) > 1:
             print(num, end=' ')
+
+
+def maximum_group() -> None:
+
+    def summa(x):
+        return sum(map(int, str(x)))
+
+    count: dict = {}
+    for num in range(1, int(input()) + 1):
+        count[summa(num)] = count.get(summa(num), 0) + 1
+    print(max(count.values()))
