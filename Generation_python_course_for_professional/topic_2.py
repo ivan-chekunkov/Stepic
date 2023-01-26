@@ -159,3 +159,26 @@ def maximum_group() -> None:
     for num in range(1, int(input()) + 1):
         count[summa(num)] = count.get(summa(num), 0) + 1
     print(max(count.values()))
+
+
+def translation_difficulties() -> None:
+    peoples = []
+    for _ in range(int(input())):
+        people = input().split(', ')
+        peoples.append(sorted(people))
+    result = peoples[0]
+    for people in peoples[1:]:
+        if people == result:
+            continue
+        index = 0
+        while index < len(result):
+            if not result[index] in people:
+                del result[index]
+                continue
+            index += 1
+        if not result:
+            print('Сериал снять не удастся')
+            return
+    if not result:
+        print('Сериал снять не удастся')
+    print(*result, sep=', ')
