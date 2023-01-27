@@ -193,3 +193,29 @@ def translation_difficulties2() -> None:
         print(*sorted(langueges), sep=', ')
     else:
         print('Сериал снять не удастся')
+
+
+def similar_words() -> None:
+    model_word = input()
+    n = int(input())
+    vowels_letters = 'ауоыиэяюёе'
+    model = []
+    for letter in model_word:
+        if letter in vowels_letters:
+            model.append(1)
+        else:
+            model.append(0)
+    revers_model = model[::-1]
+    last_vowel = revers_model.index(1)
+    len_model = len(model_word) - last_vowel
+    for _ in range(n):
+        word = input()
+        letters_word = []
+        for letter in word:
+            if letter in vowels_letters:
+                letters_word.append(1)
+            else:
+                letters_word.append(0)
+        if (model[:len_model] == letters_word[:len_model] and
+                sum(letters_word[len_model:]) == 0):
+            print(word)
