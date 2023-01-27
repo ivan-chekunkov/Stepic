@@ -182,3 +182,14 @@ def translation_difficulties() -> None:
     if not result:
         print('Сериал снять не удастся')
     print(*result, sep=', ')
+
+
+def translation_difficulties2() -> None:
+    n = int(input())
+    langueges = set(input().split(', '))
+    for _ in range(n-1):
+        langueges.intersection_update(input().split(', '))
+    if langueges:
+        print(*sorted(langueges), sep=', ')
+    else:
+        print('Сериал снять не удастся')
