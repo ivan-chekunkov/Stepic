@@ -219,3 +219,12 @@ def similar_words() -> None:
         if (model[:len_model] == letters_word[:len_model] and
                 sum(letters_word[len_model:]) == 0):
             print(word)
+
+
+def similar_words2() -> None:
+    vowels = 'ауоыиэяюёе'
+    model = [i for i, char in enumerate(input()) if char in vowels]
+    for _ in range(int(input())):
+        word = input()
+        if [i for i, char in enumerate(word) if char in vowels] == model:
+            print(word)
