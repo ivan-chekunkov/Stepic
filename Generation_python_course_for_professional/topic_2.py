@@ -228,3 +228,40 @@ def similar_words2() -> None:
         word = input()
         if [i for i, char in enumerate(word) if char in vowels] == model:
             print(word)
+
+
+def corporate_mail() -> None:
+    mails = [input() for _ in range(int(input()))]
+    names = list(map(lambda x: x.split('@')[0], mails))
+    names_count: dict = {}
+    for name in names:
+        word, count_str = name[:-1], name[-1]
+        if count_str.isnumeric():
+            count = int(count_str)
+            if names_count.get(count) is None:
+                names_count[count] = []
+            names_count[count].append(word)
+        else:
+            if names_count.get(0) is None:
+                names_count[0] = []
+            names_count[0].append(name)
+    for index in range(max(names_count.keys())):
+        if names_count.get(index) is None:
+            names_count[index] = []
+    for _ in range(int(input())):
+        name = input()
+        is_add = False
+        for key, val in sorted(names_count.items()):
+            if not name in val:
+                char = key
+                if key == 0:
+                    char = ''
+                print(f'{name}{char}@beegeek.bzz')
+                names_count[key].append(name)
+                is_add = True
+                break
+        if not is_add:
+            last_key = max(names_count.keys())
+            names_count[last_key+1] = []
+            names_count[last_key+1].append(name)
+            print(f'{name}{last_key+1}@beegeek.bzz')
