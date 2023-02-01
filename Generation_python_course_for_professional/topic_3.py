@@ -10,3 +10,13 @@ def get_date_range(start: date, end: date) -> list:
     for i in range(start.toordinal(), end.toordinal()+1):
         result.append(date.fromordinal(i))
     return result
+
+
+def saturdays_between_two_dates(start: date, end: date):
+    if start > end:
+        start, end = end, start
+    result = 0
+    for i in range(start.toordinal(), end.toordinal()+1):
+        if date.fromordinal(i).weekday() == 5:
+            result += 1
+    return result
