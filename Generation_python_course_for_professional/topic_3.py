@@ -20,3 +20,10 @@ def saturdays_between_two_dates(start: date, end: date):
         if date.fromordinal(i).weekday() == 5:
             result += 1
     return result
+
+
+def sorted_dates():
+    dates = [date.fromisoformat(input()) for _ in range(int(input()))]
+    sorted_dates = sorted(dates)
+    for one_dates in sorted_dates:
+        print(one_dates.strftime('%d/%m/%Y'))
