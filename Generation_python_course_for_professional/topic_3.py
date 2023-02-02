@@ -1,5 +1,5 @@
 import os
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, time, timedelta
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FILES_DIR = BASE_DIR + '/files_topic_3/'
@@ -27,3 +27,11 @@ def sorted_dates():
     sorted_dates = sorted(dates)
     for one_dates in sorted_dates:
         print(one_dates.strftime('%d/%m/%Y'))
+
+
+def print_good_dates(dates: list[date]):
+    format_date = '%B %d, %Y'
+    sorted_dates = sorted(dates)
+    for one_date in sorted_dates:
+        if one_date.year == 1992 and one_date.day + one_date.month == 29:
+            print(one_date.strftime(format_date))
