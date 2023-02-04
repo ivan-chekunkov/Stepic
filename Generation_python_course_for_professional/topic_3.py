@@ -35,3 +35,11 @@ def print_good_dates(dates: list[date]):
     for one_date in sorted_dates:
         if one_date.year == 1992 and one_date.day + one_date.month == 29:
             print(one_date.strftime(format_date))
+
+
+def is_correct(day: int, month: int, year: int) -> bool:
+    try:
+        date(year, month, day)
+        return True
+    except ValueError:
+        return False
