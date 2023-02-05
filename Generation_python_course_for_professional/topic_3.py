@@ -43,3 +43,18 @@ def is_correct(day: int, month: int, year: int) -> bool:
         return True
     except ValueError:
         return False
+
+
+def correct_dates():
+    count_correct_dates = 0
+    while True:
+        text = input()
+        if text == 'end':
+            print(count_correct_dates)
+            break
+        day, month, year = map(int, text.split('.'))
+        if is_correct(day, month, year):
+            count_correct_dates += 1
+            print('Корректная')
+        else:
+            print('Некорректная')
