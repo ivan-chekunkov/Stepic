@@ -58,3 +58,19 @@ def correct_dates():
             print('Корректная')
         else:
             print('Некорректная')
+
+
+def cosmonauts_diary():
+    path_file = FILES_DIR + '/diary.txt'
+    pattern = '%d.%m.%Y; %H:%M'
+    with open(path_file, 'r', encoding='UTF-8') as diary:
+        diary = diary.read().split('\n\n')
+    records = {}
+    for note in diary:
+        data, text = note.split('\n', 1)
+        data = datetime.strptime(data, pattern)
+        records[data] = text
+    for data, text in sorted(records.items()):
+        print(data.strftime(pattern))
+        print(text)
+        print()
