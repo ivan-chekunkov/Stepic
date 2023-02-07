@@ -74,3 +74,31 @@ def cosmonauts_diary():
         print(data.strftime(pattern))
         print(text)
         print()
+
+
+def is_available_date(booked_dates: list, date_for_booking: str) -> bool:
+    blocked = []
+    pattern = '%d.%m.%Y'
+    for data in booked_dates:
+        try:
+            blocked.append(datetime.strptime(data, pattern).date())
+        except:
+            dates = get_date_range(
+                *map(lambda x: datetime.strptime(x, pattern), data.split('-'))
+            )
+            blocked.extend(dates)
+    request_data = []
+    try:
+        request_data.append(datetime.strptime(
+            date_for_booking, pattern).date())
+    except:
+        dates = get_date_range(*map(
+            lambda x: datetime.strptime(
+                x, pattern), date_for_booking.split('-')
+        )
+        )
+        request_data.extend(dates)
+    for data in request_data:
+        if data in blocked:
+            return False
+    return True
