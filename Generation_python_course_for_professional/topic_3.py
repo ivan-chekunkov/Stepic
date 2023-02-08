@@ -102,3 +102,19 @@ def is_available_date(booked_dates: list, date_for_booking: str) -> bool:
         if data in blocked:
             return False
     return True
+
+    # 3.1 done
+    # 3.2 done
+    # 3.3 done
+
+
+def num_of_sundays(year):
+    start = date(year=year, month=1, day=1)
+    end = date(year=year, month=12, day=31)
+    delta = (end - start).days + 1
+    e = delta % 7
+    r = delta // 7
+    is_day = start.isoweekday()
+    if 7-is_day <= e:
+        r += 1
+    return r
