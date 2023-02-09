@@ -118,3 +118,13 @@ def num_of_sundays(year):
     if 7-is_day <= e:
         r += 1
     return r
+
+
+def productivity():
+    pattern = '%d.%m.%Y'
+    data = datetime.strptime(input(), pattern)
+    print(data.strftime(pattern))
+    for index in range(2, 11):
+        delta = timedelta(days=index)
+        data += delta
+        print(data.strftime(pattern))
