@@ -128,3 +128,19 @@ def productivity():
         delta = timedelta(days=index)
         data += delta
         print(data.strftime(pattern))
+
+
+def adjacent_dates():
+    pattern = '%d.%m.%Y'
+    datas = list(map(
+        lambda x: datetime.strptime(x, pattern), input().split(' ')
+    ))
+    result = list()
+    if len(datas) == 1:
+        return result
+    start = datas[0]
+    for index in range(1, len(datas)):
+        delta = (datas[index]-start).days
+        result.append(abs(delta))
+        start = datas[index]
+    return result
