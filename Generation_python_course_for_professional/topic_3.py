@@ -144,3 +144,34 @@ def adjacent_dates():
         result.append(abs(delta))
         start = datas[index]
     return result
+
+
+def fill_up_missing_dates(dates):
+    pattern = '%d.%m.%Y'
+    datas = list(map(lambda x: datetime.strptime(x, pattern), dates))
+    min_data = min(datas)
+    max_data = max(datas)
+    full_dates = get_date_range(min_data, max_data)
+    result = []
+    for data in full_dates:
+        result.append(data.strftime(pattern))
+    return result
+
+
+if __name__ == '__main__':
+    print(is_available_date(
+        ['04.11.2021', '05.11.2021-09.11.2021'], '01.11.2021')
+    )
+    # cosmonauts_diary()
+    # print(fill_up_missing_dates(
+    #     ['01.11.2021', '04.11.2021', '09.11.2021', '15.11.2021']))
+    # print(adjacent_dates())
+    # productivity()
+    # print(num_of_sundays(2021))
+    # print(saturdays_between_two_dates(date(2020, 7, 26), date(2020, 7, 2)))
+    # print(*get_date_range(date(2021, 10, 1), date(2021, 10, 5)), sep='\n')
+    # correct_dates()
+    # print(is_correct(31, 13, 2021))
+    # print_good_dates([date(1992, 10, 19), date(1991, 12, 6), date(1992, 9, 20)])
+    # sorted_dates()
+    pass
