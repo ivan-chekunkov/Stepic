@@ -12,3 +12,8 @@ class GenerateInts:
         else:
             self.current += 1
             return self.current - 1
+
+
+def generate_ints(n):
+    for num in range(n):
+        yield num
