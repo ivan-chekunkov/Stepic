@@ -33,3 +33,8 @@ class Counter:
         else:
             self.low += 1
             return self.low - 1
+
+
+def counter(low, high):
+    for num in range(low, high + 1):
+        yield num
