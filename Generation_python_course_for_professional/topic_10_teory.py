@@ -38,3 +38,16 @@ class Counter:
 def counter(low, high):
     for num in range(low, high + 1):
         yield num
+
+
+class EvenNumbers:
+    def __init__(self, begin):
+        self.begin = begin + begin % 2
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        value = self.begin
+        self.begin += 2
+        return value
