@@ -51,3 +51,10 @@ class EvenNumbers:
         value = self.begin
         self.begin += 2
         return value
+
+
+def even_numbers(begin):
+    begin += begin % 2
+    while True:
+        yield begin
+        begin += 2
