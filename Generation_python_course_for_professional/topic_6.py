@@ -13,3 +13,7 @@ FILES_DIR = BASE_DIR + '/files_topic_6/'
 def i_am_a_kind_of_translator_myself():
     translator = str.maketrans(string.ascii_letters, input() * 2)
     print(input().translate(translator))
+
+
+def func_1():
+    Fruit = namedtuple('Fruit', ['name', 'color', 'vitamins'])
