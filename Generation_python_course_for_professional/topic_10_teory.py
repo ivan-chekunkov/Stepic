@@ -74,3 +74,8 @@ class StringWrapper:
         if self.index == len(self.text):
             raise StopIteration
         return self.symbol + self.text[self.index] + self.symbol
+
+
+def string_wrapper(text, symbol):
+    for char in text:
+        yield symbol + char + symbol
