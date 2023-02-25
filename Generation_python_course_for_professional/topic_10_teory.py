@@ -79,3 +79,17 @@ class StringWrapper:
 def string_wrapper(text, symbol):
     for char in text:
         yield symbol + char + symbol
+
+
+class Factorials:
+    def __init__(self):
+        self.value = 1
+        self.index = 1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        self.value *= self.index
+        self.index += 1
+        return self.value
