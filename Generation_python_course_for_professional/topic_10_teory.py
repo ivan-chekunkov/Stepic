@@ -93,3 +93,12 @@ class Factorials:
         self.value *= self.index
         self.index += 1
         return self.value
+
+
+def factorials():
+    value = 1
+    index = 1
+    while True:
+        yield value
+        index += 1
+        value *= index
