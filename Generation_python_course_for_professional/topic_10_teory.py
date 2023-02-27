@@ -102,3 +102,11 @@ def factorials():
         yield value
         index += 1
         value *= index
+
+
+def simple_sequence():
+    n = 1
+    while True:
+        for _ in range(n):
+            yield n
+        n += 1
