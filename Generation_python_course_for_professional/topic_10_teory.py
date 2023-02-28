@@ -110,3 +110,9 @@ def simple_sequence():
         for _ in range(n):
             yield n
         n += 1
+
+
+if __name__ == '__main__':
+    generator = simple_sequence()
+    print(*[next(generator) for _ in range(10)])
+    pass
