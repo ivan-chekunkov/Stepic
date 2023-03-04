@@ -17,3 +17,9 @@ def i_am_a_kind_of_translator_myself():
 
 def func_1():
     Fruit = namedtuple('Fruit', ['name', 'color', 'vitamins'])
+
+
+def func_2():
+    Game = namedtuple('Game', 'name developer publisher')
+    ExtendedGame = namedtuple(
+        'ExtendedGame', Game._fields + ('release_date', 'price'))
