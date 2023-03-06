@@ -26,3 +26,14 @@ def func_2():
 
 
 Animal = namedtuple('Animal', ['name', 'family', 'sex', 'color'])
+
+
+def func_3():
+    with open(file=FILES_DIR + '/data.pkl', mode='rb') as file:
+        obj = pickle.load(file)
+    for index, animal in enumerate(obj):
+        for field, value in zip(Animal._fields, animal):
+            print(f'{field}: {value}')
+        if index == len(obj) - 1:
+            return
+        print()
