@@ -63,3 +63,6 @@ def func_4():
         print(f'  Email: {user.email}')
         print(f'  Plan: {user.plan}')
         print()
+
+
+Meeting = namedtuple('Meeting', ['name', 'data'])
