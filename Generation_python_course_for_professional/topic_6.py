@@ -66,3 +66,20 @@ def func_4():
 
 
 Meeting = namedtuple('Meeting', ['name', 'data'])
+
+
+def who_are_you_i_didnt_call_you():
+    with open(
+        file=FILES_DIR + '/meetings.csv', mode='r', encoding='UTF-8'
+    ) as file:
+        data = csv.DictReader(file)
+        meetings = []
+        pattern = '%d.%m.%Y.%H:%M'
+        for line in data:
+            name = line['surname'] + ' ' + line['name']
+            data_time = line['meeting_date'] + '.' + line['meeting_time']
+            data_meeting = datetime.datetime.strptime(data_time, pattern)
+            meetings.append(Meeting(name, data_meeting))
+        meetings.sort(key=lambda x: x[1])
+        for meeting in meetings:
+            print(meeting.name)
