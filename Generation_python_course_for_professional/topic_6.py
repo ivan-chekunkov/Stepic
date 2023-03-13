@@ -183,3 +183,10 @@ def func_7():
     for key, val in sorted(data_defdict.items()):
         print(f'{key}: ', end='')
         print(', '.join(sorted(val)))
+
+
+def wins(pairs) -> defaultdict:
+    result = defaultdict(set)
+    for win, nowin in pairs:
+        result[win].add(nowin)
+    return result
