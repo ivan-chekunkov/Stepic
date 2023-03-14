@@ -190,3 +190,11 @@ def wins(pairs) -> defaultdict:
     for win, nowin in pairs:
         result[win].add(nowin)
     return result
+
+
+def flip_dict(dict_of_lists: dict) -> defaultdict:
+    result = defaultdict(list)
+    for key, val in dict_of_lists.items():
+        for elem in val:
+            result[elem].append(key)
+    return result
