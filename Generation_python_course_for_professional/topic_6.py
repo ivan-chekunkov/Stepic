@@ -198,3 +198,13 @@ def flip_dict(dict_of_lists: dict) -> defaultdict:
         for elem in val:
             result[elem].append(key)
     return result
+
+
+def best_sender(messages: list, senders: list) -> str:
+    count_words: defaultdict = defaultdict(int)
+    for index in range(len(senders)):
+        count_words[senders[index]] += len(messages[index].split())
+    sorted_words = sorted(count_words.items(),
+                          key=lambda x: (x[1], x[0]), reverse=True)
+    result = sorted_words[0]
+    return result[0]
