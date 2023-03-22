@@ -208,3 +208,15 @@ def best_sender(messages: list, senders: list) -> str:
                           key=lambda x: (x[1], x[0]), reverse=True)
     result = sorted_words[0]
     return result[0]
+
+
+def func_8():
+    data = OrderedDict(
+        {'Name': 'Брусника', 'IsNetObject': 'да',
+         'OperatingCompany': 'Брусника', 'TypeObject': 'кафе',
+         'AdmArea': 'Центральный административный округ',
+         'District': 'район Арбат',
+         'Address': 'город Москва, переулок Сивцев Вражек, дом 6/2',
+         'SeatsCount': '10'}
+    )
+    print(OrderedDict(reversed(data.items())))
