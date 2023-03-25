@@ -253,3 +253,12 @@ def func10():
     data.sorted_values = lambda reverse=False: sorted(
         data.values(), reverse=reverse)
     print(data.sorted_values(reverse=True))
+
+
+def custom_sort(ordered_dict: OrderedDict, by_values: bool = False):
+    if by_values:
+        order = sorted(ordered_dict, key=lambda x: ordered_dict.get(x))
+    else:
+        order = sorted(ordered_dict, key=lambda x: x)
+    for key in order:
+        ordered_dict.move_to_end(key)
