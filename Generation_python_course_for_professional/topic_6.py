@@ -262,3 +262,8 @@ def custom_sort(ordered_dict: OrderedDict, by_values: bool = False):
         order = sorted(ordered_dict, key=lambda x: x)
     for key in order:
         ordered_dict.move_to_end(key)
+
+
+def count_occurences(word, words):
+    counter = Counter(map(str.lower, words.split()))
+    return counter[word.lower()]
