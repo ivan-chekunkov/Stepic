@@ -103,10 +103,6 @@ def is_available_date(booked_dates: list, date_for_booking: str) -> bool:
             return False
     return True
 
-    # 3.1 done
-    # 3.2 done
-    # 3.3 done
-
 
 def num_of_sundays(year):
     start = date(year=year, month=1, day=1)
@@ -158,20 +154,14 @@ def fill_up_missing_dates(dates):
     return result
 
 
-if __name__ == '__main__':
-    print(is_available_date(
-        ['04.11.2021', '05.11.2021-09.11.2021'], '01.11.2021')
-    )
-    # cosmonauts_diary()
-    # print(fill_up_missing_dates(
-    #     ['01.11.2021', '04.11.2021', '09.11.2021', '15.11.2021']))
-    # print(adjacent_dates())
-    # productivity()
-    # print(num_of_sundays(2021))
-    # print(saturdays_between_two_dates(date(2020, 7, 26), date(2020, 7, 2)))
-    # print(*get_date_range(date(2021, 10, 1), date(2021, 10, 5)), sep='\n')
-    # correct_dates()
-    # print(is_correct(31, 13, 2021))
-    # print_good_dates([date(1992, 10, 19), date(1991, 12, 6), date(1992, 9, 20)])
-    # sorted_dates()
-    pass
+def rap_by_matesha():
+    pattern = '%H:%M'
+    start = datetime.strptime(input(), pattern)
+    end = datetime.strptime(input(), pattern)
+    stop = start + timedelta(minutes=45)
+    while stop <= end:
+        time_start = datetime.strftime(start, pattern)
+        time_stop = datetime.strftime(stop, pattern)
+        print(f'{time_start} - {time_stop}')
+        start = stop + timedelta(minutes=10)
+        stop = start + timedelta(minutes=45)
