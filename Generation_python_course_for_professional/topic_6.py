@@ -267,3 +267,21 @@ def custom_sort(ordered_dict: OrderedDict, by_values: bool = False):
 def count_occurences(word, words):
     counter = Counter(map(str.lower, words.split()))
     return counter[word.lower()]
+
+
+def and_how_much_does_the_course_cost():
+
+    def sum_unicode(word):
+        result = 0
+        for char in word.replace(' ', ''):
+            result += ord(char)
+        return result
+
+    words = input().split(',')
+    counter = Counter(words)
+    max_just = len(max(counter, key=lambda x: len(x)))
+    for key in sorted(counter):
+        val = counter[key]
+        sum_chars = sum_unicode(key)
+        print(key.ljust(max_just), end='')
+        print(f': {sum_chars} UC x {val} = {val * sum_chars} UC')
