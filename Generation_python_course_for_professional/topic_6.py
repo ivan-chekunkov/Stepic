@@ -285,3 +285,17 @@ def and_how_much_does_the_course_cost():
         sum_chars = sum_unicode(key)
         print(key.ljust(max_just), end='')
         print(f': {sum_chars} UC x {val} = {val * sum_chars} UC')
+
+
+def the_zen_of_python():
+    with open(
+        FILES_DIR + 'pythonzen.txt', mode='r', encoding='UTF-8'
+    ) as file:
+        text = file.read()
+        chars = []
+        for char in text:
+            if char.isalpha():
+                chars.append(char.lower())
+    counter = Counter(chars)
+    for key in sorted(counter):
+        print(f'{key}: {counter[key]}')
