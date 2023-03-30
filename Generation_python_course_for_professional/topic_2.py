@@ -265,3 +265,78 @@ def corporate_mail() -> None:
             names_count[last_key+1] = []
             names_count[last_key+1].append(name)
             print(f'{name}{last_key+1}@beegeek.bzz')
+
+
+def files_in_s_file() -> None:
+
+    def convert_to_byte(size: int, measure: str) -> int:
+        convert_list = {'B': 0, 'KB': 1, 'MB': 2, 'GB': 3}
+        return int(size) * (1024 ** convert_list[measure])
+
+    def convert_to_big_byte(size: int) -> str:
+        if size < 1024:
+            return f'{round(size)} B'
+        size /= 1024
+        if size < 1024:
+            return f'{round(size)} KB'
+        size /= 1024
+        if size < 1024:
+            return f'{round(size)} MB'
+        size /= 1024
+        if size < 1024:
+            return f'{round(size)} GB'
+
+    data_file: list = []
+    with open(file='files.txt', mode='r', encoding='UTF-8') as file:
+        lines = file.readlines()
+        for line in lines:
+            name_file, size, measure = line.split()
+            name, expansion = name_file.split('.')
+            data_file.append((name, expansion, convert_to_byte(size, measure)))
+    exp_dict: dict = {}
+    for data in data_file:
+        temp = exp_dict.get(data[1], [])
+        temp.append(data)
+        exp_dict[data[1]] = temp
+    adv_exp_dict: dict = {}
+    for key, val in exp_dict.items():
+        summary = 0
+        for data in val:
+            summary += data[2]
+        adv_exp_dict[key] = (val, summary)
+    sort_adv_exp_dict: dict = {}
+    for data in sorted(adv_exp_dict):
+        sort_adv_exp_dict[data] = adv_exp_dict[data]
+    for index, items in enumerate(sort_adv_exp_dict.items()):
+        key, val = items
+        for file_name in sorted(val[0], key=lambda x: x[0]):
+            print(f'{file_name[0]}.{file_name[1]}')
+        print('-'*10)
+        print(f'Summary: {convert_to_big_byte(val[1])}')
+        if index != len(sort_adv_exp_dict)-1:
+            print()
+
+
+if __name__ == '__main__':
+    files_in_s_file()
+    # corporate_mail()
+    # similar_words2()
+    # similar_words()
+    # translation_difficulties2()
+    # translation_difficulties()
+    # maximum_group()
+    # more_than_one()
+    # upheaval()
+    # similar_letters()
+    # print(get_biggest([61, 228, 9, 3, 11]))
+    # print(choose_plural(21, ('пример', 'примера', 'примеров')))
+    # print(spell('Математика', 'История', 'химия','биология', 'Информатика'))
+    # print(index_of_nearest([7, 5, 4, 4, 3], 4))
+    # test_likes()
+    # print(filter_anagrams('клоун', ['колдун', 'кулон', 'уклон', 'кол']))
+    # print(convert('pi31415!'))
+    # print_given(1, [1, 2, 3], 'three', two=2)
+    # print(is_valid('89651'))
+    # print(same_parity([6, 0, 67, -7, 10, -20]))
+    # print(hide_card('34 56 9012 56 78 1234'))
+    pass
