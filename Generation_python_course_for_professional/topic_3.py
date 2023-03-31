@@ -1,5 +1,7 @@
+import calendar
 import os
-from datetime import date, datetime, time, timedelta
+import time
+from datetime import date, datetime, timedelta
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 FILES_DIR = BASE_DIR + '/files_topic_3/'
@@ -165,3 +167,20 @@ def rap_by_matesha():
         print(f'{time_start} - {time_stop}')
         start = stop + timedelta(minutes=10)
         stop = start + timedelta(minutes=45)
+
+
+def friday_13th():
+    start = date(1, 1, 13)
+    stop = date(9999, 12, 31)
+    count_weekdays = {}
+    while True:
+        if start == stop:
+            break
+        if start.day != 13:
+            start = start + timedelta(days=1)
+            continue
+        day = start.weekday()
+        count_weekdays[day] = 1 + count_weekdays.get(day, 0)
+        start = start + timedelta(days=1)
+    for weekday in range(7):
+        print(count_weekdays[weekday])
