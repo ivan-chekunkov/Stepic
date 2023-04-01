@@ -184,3 +184,22 @@ def friday_13th():
         start = start + timedelta(days=1)
     for weekday in range(7):
         print(count_weekdays[weekday])
+
+
+def again_i_didn_t_have_time():
+    input_text = input()
+    pattern = '%d.%m.%Y %H:%M'
+    input_date = datetime.strptime(input_text, pattern)
+    weekday = str(input_date.weekday())
+    if weekday in '01234':
+        start = '9:00'
+        stop = '21:00'
+    elif weekday in '56':
+        start = '10:00'
+        stop = '18:00'
+    day_start = datetime.strptime(input_text[:11] + start, pattern)
+    day_stop = datetime.strptime(input_text[:11] + stop, pattern)
+    if day_start <= input_date < day_stop:
+        print(int((day_stop - input_date).seconds/60))
+    else:
+        print('Магазин не работает')
