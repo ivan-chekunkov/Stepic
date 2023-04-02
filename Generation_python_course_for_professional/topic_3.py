@@ -203,3 +203,18 @@ def again_i_didn_t_have_time():
         print(int((day_stop - input_date).seconds/60))
     else:
         print('Магазин не работает')
+
+
+def the_most_understandable_condition():
+    pattern = '%d.%m.%Y'
+    start_data = datetime.strptime(input(), pattern)
+    end_data = datetime.strptime(input(), pattern)
+    while True:
+        if (start_data.day + start_data.month) % 2 == 0:
+            start_data += timedelta(days=1)
+        else:
+            break
+    while start_data <= end_data:
+        if start_data.isoweekday() not in (1, 4):
+            print(datetime.strftime(start_data, pattern))
+        start_data += timedelta(days=3)
