@@ -218,3 +218,24 @@ def the_most_understandable_condition():
         if start_data.isoweekday() not in (1, 4):
             print(datetime.strftime(start_data, pattern))
         start_data += timedelta(days=3)
+
+
+def employees_of_the_organization():
+    min_data = datetime(9999, 12, 31)
+    pattern = '%d.%m.%Y'
+    min_name = ''
+    count = 0
+    for _ in range(int(input())):
+        *name, dt = input().split()
+        dt = datetime.strptime(dt, pattern)
+        if dt <= min_data:
+            if dt == min_data:
+                count += 1
+                continue
+            min_data = dt
+            min_name = ' '.join(name)
+            count = 1
+    if count > 1:
+        print(datetime.strftime(min_data, pattern), count)
+    else:
+        print(datetime.strftime(min_data, pattern), min_name)
