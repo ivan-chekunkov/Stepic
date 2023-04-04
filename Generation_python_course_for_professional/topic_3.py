@@ -239,3 +239,18 @@ def employees_of_the_organization():
         print(datetime.strftime(min_data, pattern), count)
     else:
         print(datetime.strftime(min_data, pattern), min_name)
+
+
+def employees_of_the_organization_2():
+    pattern = '%d.%m.%Y'
+    max_count = 0
+    dict_data = {}
+    for _ in range(int(input())):
+        *_, dt = input().split()
+        dt = datetime.strptime(dt, pattern)
+        dict_data[dt] = dict_data.get(dt, 0) + 1
+        if max_count < dict_data[dt]:
+            max_count = dict_data[dt]
+    for dt in sorted(dict_data.keys()):
+        if dict_data[dt] == max_count:
+            print(datetime.strftime(dt, pattern))
