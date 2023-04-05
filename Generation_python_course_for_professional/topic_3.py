@@ -254,3 +254,24 @@ def employees_of_the_organization_2():
     for dt in sorted(dict_data.keys()):
         if dict_data[dt] == max_count:
             print(datetime.strftime(dt, pattern))
+
+
+def employees_of_the_organization_3():
+    max_data = datetime(1, 1, 1)
+    min_name = 'Дни рождения не планируются'
+    pattern = '%d.%m.%Y'
+    data_today = datetime.strptime(input(), pattern)
+    seven_days = []
+    for index in range(1, 8):
+        temp = data_today + timedelta(days=index)
+        seven_days.append(str(temp.day) + '.' + str(temp.month))
+    for _ in range(int(input())):
+        *name, dt = input().split()
+        dt = datetime.strptime(dt, pattern)
+        if dt.month == 2 and dt.day == 29 and '1.3' in seven_days:
+            dt = dt + timedelta(days=1)
+        if (str(dt.day) + '.' + str(dt.month)) in seven_days:
+            if dt > max_data:
+                max_data = dt
+                min_name = ' '.join(name)
+    print(min_name)
