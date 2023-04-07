@@ -290,3 +290,44 @@ def choose_plural(amount: int, declensions: tuple) -> str:
     for key, value in index_declensions.items():
         if number_end in value:
             return f'{amount} {declensions[key]}'
+
+
+def fake_news():
+    answear = [
+        'До выхода курса осталось: {}',
+        'Курс уже вышел!',
+    ]
+    date_course = datetime(2022, 11, 8, 12)
+    pattern = '%d.%m.%Y %H:%M'
+    date_input = datetime.strptime(input(), pattern)
+    delta = date_course - date_input
+    plural_names = [
+        ('день', 'дня', 'дней'),
+        ('час', 'часа', 'часов'),
+        ('минута', 'минуты', 'минут'),
+    ]
+    if delta.days < 0:
+        print(answear[1])
+    elif delta.days == 0:
+        if delta.seconds == 0:
+            print(answear[1])
+        elif delta.seconds < 3600:
+            text = choose_plural(delta.seconds // 60, plural_names[2])
+            print(answear[0].format(text))
+        elif delta.seconds % 3600 == 0:
+            text = choose_plural(delta.seconds//3600, plural_names[1])
+            print(answear[0].format(text))
+        else:
+            hour = delta.seconds // 3600
+            text = (choose_plural(hour, plural_names[1]) +
+                    ' и ' + choose_plural(
+                    (delta.seconds // 60) - hour * 60, plural_names[2]))
+            print(answear[0].format(text))
+    else:
+        if delta.seconds < 3600:
+            text = choose_plural(delta.days, plural_names[0])
+            print(answear[0].format(text))
+        else:
+            text = (choose_plural(delta.days, plural_names[0]) + ' и ' +
+                    choose_plural(delta.seconds // 3600, plural_names[1]))
+            print(answear[0].format(text))
