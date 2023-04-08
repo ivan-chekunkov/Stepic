@@ -331,3 +331,10 @@ def fake_news():
             text = (choose_plural(delta.days, plural_names[0]) + ' и ' +
                     choose_plural(delta.seconds // 3600, plural_names[1]))
             print(answear[0].format(text))
+
+
+def calculate_it(func, *args):
+    start = time.perf_counter()
+    result = func(*args)
+    end = time.perf_counter()
+    return result, end-start
