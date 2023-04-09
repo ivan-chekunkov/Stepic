@@ -338,3 +338,8 @@ def calculate_it(func, *args):
     result = func(*args)
     end = time.perf_counter()
     return result, end-start
+
+
+def add(a, b, c):
+    time.sleep(3)
+    return a + b + c
