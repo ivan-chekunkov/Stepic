@@ -343,3 +343,8 @@ def calculate_it(func, *args):
 def add(a, b, c):
     time.sleep(3)
     return a + b + c
+
+
+def func_1(a):
+    time.sleep(5)
+    return a
