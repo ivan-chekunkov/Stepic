@@ -348,3 +348,8 @@ def add(a, b, c):
 def func_1(a):
     time.sleep(5)
     return a
+
+
+def func_2(a):
+    time.sleep(3)
+    return a
