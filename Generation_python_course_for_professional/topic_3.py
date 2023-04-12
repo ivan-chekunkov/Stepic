@@ -353,3 +353,16 @@ def func_1(a):
 def func_2(a):
     time.sleep(3)
     return a
+
+
+def get_the_fastest_func(funcs, arg):
+    min_time = 1000000000
+    for func in funcs:
+        start = time.perf_counter()
+        func(arg)
+        end = time.perf_counter()
+        time_work = end - start
+        if time_work < min_time:
+            min_time = time_work
+            min_func = func
+    return min_func
