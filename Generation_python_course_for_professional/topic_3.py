@@ -367,13 +367,6 @@ def get_the_fastest_func(funcs, arg):
             min_func = func
     return min_func
 
-    # 3.1 done
-    # 3.2 done
-    # 3.3 done
-    # 3.4 done
-    # 3.5 done
-    # 3.6 done
-
 
 def leap_year():
     for _ in range(int(input())):
@@ -386,3 +379,8 @@ def calendar_for_the_month():
          'Jul': 7, 'Aug': 8, 'Sep': 9, 'Oct': 10, 'Nov': 11, 'Dec': 12}
     month = d[month]
     print(calendar.month(int(year), month))
+
+
+def calendar_for_the_month_2():
+    dt = datetime.strptime(input(), '%Y %b')
+    calendar.prmonth(dt.year, dt.month)
