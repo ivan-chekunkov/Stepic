@@ -390,3 +390,8 @@ def day_of_the_week():
     pattern = '%Y-%m-%d'
     dt = datetime.strptime(input(), pattern)
     print(dt.strftime('%A'))
+
+
+def number_of_days():
+    year, month = map(int, input().split())
+    print(calendar.monthrange(year=year, month=month)[1])
