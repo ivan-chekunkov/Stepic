@@ -384,3 +384,9 @@ def calendar_for_the_month():
 def calendar_for_the_month_2():
     dt = datetime.strptime(input(), '%Y %b')
     calendar.prmonth(dt.year, dt.month)
+
+
+def day_of_the_week():
+    pattern = '%Y-%m-%d'
+    dt = datetime.strptime(input(), pattern)
+    print(dt.strftime('%A'))
