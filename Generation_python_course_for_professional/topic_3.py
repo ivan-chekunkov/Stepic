@@ -395,3 +395,9 @@ def day_of_the_week():
 def number_of_days():
     year, month = map(int, input().split())
     print(calendar.monthrange(year=year, month=month)[1])
+
+
+def number_of_days_2():
+    year, month = input().split()
+    month = list(calendar.month_name).index(month)
+    print(calendar.monthrange(year=int(year), month=int(month))[1])
