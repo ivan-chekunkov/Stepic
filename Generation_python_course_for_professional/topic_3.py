@@ -401,3 +401,12 @@ def number_of_days_2():
     year, month = input().split()
     month = list(calendar.month_name).index(month)
     print(calendar.monthrange(year=int(year), month=int(month))[1])
+
+
+def get_days_in_month(year: int, month: str) -> list[date]:
+    month_index = list(calendar.month_name).index(month)
+    month_days = calendar.monthrange(year, month_index)[1]
+    result: list[date] = []
+    for day in range(1, month_days + 1):
+        result.append(date(year, month_index, day))
+    return result
