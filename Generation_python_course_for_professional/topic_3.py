@@ -410,3 +410,15 @@ def get_days_in_month(year: int, month: str) -> list[date]:
     for day in range(1, month_days + 1):
         result.append(date(year, month_index, day))
     return result
+
+
+def get_all_mondays(year: int) -> list[date]:
+    index_day = 7 - calendar.monthrange(year, 1)[0]
+    if index_day == 7:
+        index_day = 0
+    start_date = date(year, 1, 1) + timedelta(days=index_day)
+    result: list[date] = []
+    while start_date <= date(year, 12, 31):
+        result.append(start_date)
+        start_date = start_date + timedelta(days=7)
+    return result
