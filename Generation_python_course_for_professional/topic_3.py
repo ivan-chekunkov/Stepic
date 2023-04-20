@@ -422,3 +422,54 @@ def get_all_mondays(year: int) -> list[date]:
         result.append(start_date)
         start_date = start_date + timedelta(days=7)
     return result
+
+
+def third_thursday_of_the_month():
+    year = int(input())
+    calendar.setfirstweekday(calendar.THURSDAY)
+    for month in range(1, 13):
+        index = 1
+        for week in calendar.monthcalendar(year, month):
+            if week[0] == 0:
+                continue
+            if index == 3:
+                print(date(year, month, week[0]).strftime('%d.%m.%Y'))
+                break
+            index += 1
+
+
+if __name__ == '__main__':
+    third_thursday_of_the_month()
+    # print(get_all_mondays(2022))
+    # print(get_days_in_month(2021, 'December'))
+    # number_of_days_2()
+    # number_of_days()
+    # day_of_the_week()
+    # calendar_for_the_month_2()
+    # calendar_for_the_month()
+    # leap_year()
+    # print(get_the_fastest_func((func_1, func_2), 5))
+    # print(calculate_it(add, 1, 2, 3))
+    # fake_news()
+    # employees_of_the_organization_3()
+    # employees_of_the_organization_2()
+    # employees_of_the_organization()
+    # the_most_understandable_condition()
+    # again_i_didn_t_have_time()
+    # friday_13th()
+    # rap_by_matesha()
+    # print(is_available_date(
+    #     ['04.11.2021', '05.11.2021-09.11.2021'], '01.11.2021'))
+    # cosmonauts_diary()
+    # print(fill_up_missing_dates(
+    #     ['01.11.2021', '04.11.2021', '09.11.2021', '15.11.2021']))
+    # print(adjacent_dates())
+    # productivity()
+    # print(num_of_sundays(2021))
+    # print(saturdays_between_two_dates(date(2020, 7, 26), date(2020, 7, 2)))
+    # print(*get_date_range(date(2021, 10, 1), date(2021, 10, 5)), sep='\n')
+    # correct_dates()
+    # print(is_correct(31, 13, 2021))
+    # print_good_dates([date(1992, 10, 19), date(1991, 12, 6), date(1992, 9, 20)])
+    # sorted_dates()
+    pass
