@@ -33,3 +33,13 @@ def filterfalse(predicate, iterable):
 
 def transpose(matrix):
     return list(map(list, zip(*matrix)))
+
+
+def get_min_max(data):
+    if not data:
+        return None
+    data_and_index = []
+    for index, num in enumerate(data):
+        data_and_index.append((index, num))
+    return (min(data_and_index, key=lambda x: x[1])[0],
+            max(data_and_index, key=lambda x: x[1])[0])
