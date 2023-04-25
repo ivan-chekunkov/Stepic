@@ -43,3 +43,20 @@ def get_min_max(data):
         data_and_index.append((index, num))
     return (min(data_and_index, key=lambda x: x[1])[0],
             max(data_and_index, key=lambda x: x[1])[0])
+
+
+def get_min_max2(iterable) -> tuple[int, int] | None:
+    iterable = iter(iterable)
+    try:
+        first_num = next(iterable)
+        min_num = first_num
+        max_num = first_num
+    except StopIteration:
+        return None
+    for num in iterable:
+        if num < min_num:
+            min_num = num
+            continue
+        if num > max_num:
+            max_num = num
+    return min_num, max_num
