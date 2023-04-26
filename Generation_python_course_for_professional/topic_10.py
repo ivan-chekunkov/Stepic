@@ -60,3 +60,7 @@ def get_min_max2(iterable) -> tuple[int, int] | None:
         if num > max_num:
             max_num = num
     return min_num, max_num
+
+
+def starmap(func, iterable):
+    return map(lambda x: func(*x), iterable)
