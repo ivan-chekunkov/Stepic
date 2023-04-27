@@ -64,3 +64,11 @@ def get_min_max2(iterable) -> tuple[int, int] | None:
 
 def starmap(func, iterable):
     return map(lambda x: func(*x), iterable)
+
+
+def is_iterable(obj):
+    try:
+        iter(obj)
+        return True
+    except:
+        return False
