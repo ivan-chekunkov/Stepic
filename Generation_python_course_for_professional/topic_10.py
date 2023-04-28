@@ -72,3 +72,11 @@ def is_iterable(obj):
         return True
     except:
         return False
+
+
+def is_iterator(obj):
+    try:
+        next(obj)
+        return True
+    except:
+        return False
