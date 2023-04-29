@@ -1,3 +1,6 @@
+import random
+
+
 def four_num():
     numbers = [
         100, 70, 34, 45, 30, 83, 12, 83, -28, 49, -8, -2, 6, 62, 64,
@@ -80,3 +83,9 @@ def is_iterator(obj):
         return True
     except:
         return False
+
+
+def random_numbers(left, right):
+    def func():
+        return random.randint(left, right)
+    return iter(func, 'a')
