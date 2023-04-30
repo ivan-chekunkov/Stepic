@@ -88,4 +88,16 @@ def is_iterator(obj):
 def random_numbers(left, right):
     def func():
         return random.randint(left, right)
+
     return iter(func, 'a')
+
+
+class Repeater:
+    def __init__(self, obj) -> None:
+        self.obj = obj
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        return self.obj
