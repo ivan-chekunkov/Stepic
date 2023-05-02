@@ -88,7 +88,6 @@ def is_iterator(obj):
 def random_numbers(left, right):
     def func():
         return random.randint(left, right)
-
     return iter(func, 'a')
 
 
@@ -100,4 +99,19 @@ class Repeater:
         return self
 
     def __next__(self):
+        return self.obj
+
+
+class BoundedRepeater:
+    def __init__(self, obj, times) -> None:
+        self.obj = obj
+        self.times = times
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.times == 0:
+            raise StopIteration
+        self.times -= 1
         return self.obj
