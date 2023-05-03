@@ -115,3 +115,18 @@ class BoundedRepeater:
             raise StopIteration
         self.times -= 1
         return self.obj
+
+
+class Square:
+    def __init__(self, n) -> None:
+        self.n = n
+        self.start = 0
+
+    def __iter__(self):
+        return self
+
+    def __next__(self) -> int:
+        self.start += 1
+        if self.start > self.n:
+            raise StopIteration
+        return self.start ** 2
