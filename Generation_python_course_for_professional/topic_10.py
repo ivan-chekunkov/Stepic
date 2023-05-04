@@ -130,3 +130,16 @@ class Square:
         if self.start > self.n:
             raise StopIteration
         return self.start ** 2
+
+
+class Fibonacci:
+    def __init__(self) -> None:
+        self.current = 0
+        self.start = 1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self) -> int:
+        self.start, self.current = self.current, self.current + self.start
+        return self.current
