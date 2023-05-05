@@ -143,3 +143,16 @@ class Fibonacci:
     def __next__(self) -> int:
         self.start, self.current = self.current, self.current + self.start
         return self.current
+
+
+class PowerOf:
+    def __init__(self, number) -> None:
+        self.number = number
+        self.index = -1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self) -> int:
+        self.index += 1
+        return self.number ** self.index
