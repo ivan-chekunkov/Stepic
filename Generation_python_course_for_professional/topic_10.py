@@ -156,3 +156,20 @@ class PowerOf:
     def __next__(self) -> int:
         self.index += 1
         return self.number ** self.index
+
+
+class DictItemsIterator:
+    def __init__(self, data) -> None:
+        self.data = data
+        self.data_iterator = iter(data)
+
+    def __iter__(self):
+        return self
+
+    def __next__(self) -> tuple:
+        try:
+            key = next(self.data_iterator)
+            value = self.data[key]
+            return key, value
+        except:
+            raise StopIteration
