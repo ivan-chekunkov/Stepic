@@ -173,3 +173,22 @@ class DictItemsIterator:
             return key, value
         except:
             raise StopIteration
+
+
+class CardDeck:
+    def __init__(self) -> None:
+        self.suits_card = ['пик', 'треф', 'бубен', 'червей']
+        self.nominal_card = ['2', '3', '4', '5', '6', '7', '8', '9', '10',
+                             'валет', 'дама', 'король', 'туз']
+        self.index = -1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self) -> str:
+        self.index += 1
+        if self.index == 52:
+            raise StopIteration
+        suit = self.index // 13
+        nominal = self.index % 13
+        return f'{self.nominal_card[nominal]} {self.suits_card[suit]}'
