@@ -192,3 +192,16 @@ class CardDeck:
         suit = self.index // 13
         nominal = self.index % 13
         return f'{self.nominal_card[nominal]} {self.suits_card[suit]}'
+
+
+class Cycle:
+    def __init__(self, iterable) -> None:
+        self.iterable = iterable
+        self.start_index = -1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self) -> str:
+        self.start_index += 1
+        return self.iterable[self.start_index % len(self.iterable)]
