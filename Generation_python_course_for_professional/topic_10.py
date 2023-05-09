@@ -205,3 +205,20 @@ class Cycle:
     def __next__(self) -> str:
         self.start_index += 1
         return self.iterable[self.start_index % len(self.iterable)]
+
+
+class RandomNumbers:
+    def __init__(self, left, right, n) -> None:
+        self.left = left
+        self.right = right
+        self.n = n
+        self.index = -1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self) -> int:
+        self.index += 1
+        if self.index == self.n:
+            raise StopIteration
+        return random.randint(self.left, self.right)
