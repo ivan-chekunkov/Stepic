@@ -222,3 +222,22 @@ class RandomNumbers:
         if self.index == self.n:
             raise StopIteration
         return random.randint(self.left, self.right)
+
+
+class Alphabet:
+    DICT_ALPHABET = {
+        'en': 'abcdefghijklmnopqrstuvwxyz',
+        'ru': 'абвгдежзийклмнопрстуфхцчшщъыьэюя'
+    }
+
+    def __init__(self, language) -> None:
+        self.alphabet = self.DICT_ALPHABET[language]
+        self.lenth = len(self.alphabet)
+        self.index = -1
+
+    def __iter__(self):
+        return self
+
+    def __next__(self) -> str:
+        self.index += 1
+        return self.alphabet[self.index % self.lenth]
