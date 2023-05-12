@@ -261,3 +261,11 @@ class Xrange:
             if self.start <= self.end:
                 raise StopIteration
         return self.start
+
+
+def simple_sequence():
+    n = 1
+    while True:
+        for _ in range(n):
+            yield n
+        n += 1
