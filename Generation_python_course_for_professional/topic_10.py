@@ -269,3 +269,13 @@ def simple_sequence():
         for _ in range(n):
             yield n
         n += 1
+
+
+def alternating_sequence(count=None):
+    n = 1
+    while n-1 != count:
+        if n % 2 == 0:
+            yield 0-n
+        else:
+            yield n
+        n += 1
