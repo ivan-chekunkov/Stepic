@@ -279,3 +279,17 @@ def alternating_sequence(count=None):
         else:
             yield n
         n += 1
+
+
+def primes(left, right):
+    def is_prime(num):
+        for index in range(2, num):
+            if num % index == 0:
+                return False
+        return True
+    while left <= right:
+        if left == 1:
+            left += 1
+        if is_prime(left):
+            yield left
+        left += 1
