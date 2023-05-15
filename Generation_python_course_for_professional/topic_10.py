@@ -293,3 +293,8 @@ def primes(left, right):
         if is_prime(left):
             yield left
         left += 1
+
+
+def reverse(sequence):
+    for index in range(len(sequence)-1, -1, -1):
+        yield sequence[index]
