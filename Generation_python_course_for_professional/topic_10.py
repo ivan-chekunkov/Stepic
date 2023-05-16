@@ -298,3 +298,7 @@ def primes(left, right):
 def reverse(sequence):
     for index in range(len(sequence)-1, -1, -1):
         yield sequence[index]
+
+
+def reverse2(sequence):
+    yield from sequence[::-1]
