@@ -1,4 +1,5 @@
 import random
+from datetime import date
 
 
 def four_num():
@@ -302,3 +303,14 @@ def reverse(sequence):
 
 def reverse2(sequence):
     yield from sequence[::-1]
+
+
+def dates(start, count=None):
+    if count == None:
+        count = -1
+    while count != 1 and date.toordinal(start) != 3652059:
+        yield start
+        data = date.toordinal(start)
+        start = date.fromordinal(data + 1)
+        count -= 1
+    yield start
