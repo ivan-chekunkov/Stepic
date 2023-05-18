@@ -314,3 +314,16 @@ def dates(start, count=None):
         start = date.fromordinal(data + 1)
         count -= 1
     yield start
+
+
+def card_deck(suit):
+    suits_card = ['пик', 'треф', 'бубен', 'червей']
+    nominal_card = ['2', '3', '4', '5', '6', '7', '8', '9', '10',
+                    'валет', 'дама', 'король', 'туз']
+    suits_card.remove(suit)
+    index = 0
+    while True:
+        suit = (index // 13) % 3
+        nominal = index % 13
+        yield f'{nominal_card[nominal]} {suits_card[suit]}'
+        index += 1
