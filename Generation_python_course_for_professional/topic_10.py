@@ -327,3 +327,8 @@ def card_deck(suit):
         nominal = index % 13
         yield f'{nominal_card[nominal]} {suits_card[suit]}'
         index += 1
+
+
+def matrix_by_elem(matrix):
+    for elem in matrix:
+        yield from elem
