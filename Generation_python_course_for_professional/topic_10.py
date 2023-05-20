@@ -332,3 +332,12 @@ def card_deck(suit):
 def matrix_by_elem(matrix):
     for elem in matrix:
         yield from elem
+
+
+def func_palindromes():
+    index = 1
+    while True:
+        num = str(index)
+        if num == num[::-1]:
+            yield int(num)
+        index += 1
