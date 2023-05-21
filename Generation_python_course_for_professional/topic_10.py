@@ -341,3 +341,15 @@ def func_palindromes():
         if num == num[::-1]:
             yield int(num)
         index += 1
+
+
+def palindromes():
+    yield from func_palindromes()
+
+
+def flatten(nested_list):
+    for elem in nested_list:
+        if isinstance(elem, list):
+            yield from flatten(elem)
+        else:
+            yield elem
