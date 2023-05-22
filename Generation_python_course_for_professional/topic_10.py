@@ -353,3 +353,64 @@ def flatten(nested_list):
             yield from flatten(elem)
         else:
             yield elem
+
+    # 10.1 done
+    # 10.2 done
+    # 10.3 done
+    # 10.4 done
+    # 10.5 done
+
+
+if __name__ == '__main__':
+    # generator = flatten([[1, 2], [[3]], [[4], 5]])
+    # print(*generator)
+    # generator = palindromes()
+    # print(*[next(generator) for _ in range(30)])
+    # print(*matrix_by_elem([[1, 2, 3], [4, 5, 6], [7, 8, 9]]))
+    # generator = card_deck('треф')
+    # print(*[next(generator) for _ in range(60)])
+    # generator = dates(date(2022, 3, 8), 5)
+    # print(*generator)
+    # print(*reverse2([1, 2, 3, 4, 5]))
+    # print(*reverse([1, 2, 3, 4, 5]))
+    # generator = primes(37, 37)
+    # print(*generator)
+    # generator = alternating_sequence(10)
+    # print(*generator)
+    # generator = simple_sequence()
+    # print(*[next(generator) for _ in range(10)])
+    # xrange2 = Xrange(10, 1, -1)
+    # print(*xrange2)
+    # en_alpha = Alphabet('en')
+    # print(*[next(en_alpha) for _ in range(38)])
+    # iterator = RandomNumbers(1, 100, 10)
+    # print(list(next(iterator) for _ in range(10)))
+    # cycle = Cycle('Hello world')
+    # print(list(next(cycle) for _ in range(20)))
+    # cards = CardDeck()
+    # print(list(next(cards) for _ in range(52)))
+    # pairs = DictItemsIterator({1: 'A', 2: 'B', 3: 'C'})
+    # print(*pairs)
+    # power_of_two = PowerOf(2)
+    # print(list(next(power_of_two) for _ in range(20)))
+    # fibonacci = Fibonacci()
+    # print(list(next(fibonacci) for _ in range(20)))
+    # squares = Square(10)
+    # print(list(squares))
+    # bee = BoundedRepeater('bee', 2)
+    # print(next(bee))
+    # print(next(bee))
+    # bee = Repeater('bee')
+    # print(next(bee))
+    # print(next(random_numbers(1, 100)))
+    # print(is_iterator([1, 2, 3, 4, 5]))
+    # print(is_iterable('18731'))
+    # print(*starmap(lambda x, y, z: x * y * z,
+    #                [(1, 1, 1), (1, 1, 2), (2, 2, 3)]))
+    # print(get_min_max2([6, 4, 2, 33, 19, 1]))
+    # print(get_min_max([2, 3, 8, 1, 7]))
+    # print(*transpose([[1, 2, 3], [4, 5, 6], [7, 8, 9]]), sep='\n')
+    # print(*filterfalse(lambda x: x % 2 == 0, (1, 2, 3, 4, 5)))
+    # last_num()
+    # four_num()
+    pass
