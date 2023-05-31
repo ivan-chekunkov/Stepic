@@ -35,3 +35,19 @@ def func_3():
         except:
             pass
     print(remainders)
+
+
+def only_numbers():
+    lines = list(sys.stdin.readlines())
+    sum_number = 0
+    count_string = 0
+    for line in lines:
+        try:
+            sum_number += int(line)
+        except ValueError:
+            try:
+                sum_number += float(line)
+            except:
+                count_string += 1
+    print(sum_number)
+    print(count_string)
