@@ -1,3 +1,7 @@
+import calendar
+import sys
+
+
 def func_1():
     blog_posts = [{'Photos': 3, 'Likes': 21, 'Comments': 2},
                   {'Likes': 13, 'Comments': 2, 'Shares': 1},
@@ -51,3 +55,14 @@ def only_numbers():
                 count_string += 1
     print(sum_number)
     print(count_string)
+
+
+def january_february():
+    months = dict(zip(range(1, 13), calendar.month_name[1:]))
+    try:
+        num = int(input())
+        print(months[num])
+    except KeyError:
+        print('Введено число из недопустимого диапазона')
+    except ValueError:
+        print('Введено некорректное значение')
