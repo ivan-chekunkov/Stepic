@@ -66,3 +66,10 @@ def january_february():
         print('Введено число из недопустимого диапазона')
     except ValueError:
         print('Введено некорректное значение')
+
+
+def add_to_list_in_dict(data: dict, key, element):
+    try:
+        data[key].append(element)
+    except KeyError:
+        data[key] = [element]
