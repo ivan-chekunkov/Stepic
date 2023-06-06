@@ -102,16 +102,3 @@ def get_id(names: list, name: str) -> int:
     if not name.istitle() or not name.isalpha():
         raise ValueError('Имя не является корректным')
     return len(names) + 1
-
-
-def deserialization():
-    name = input()
-    try:
-        with open(name) as json_file:
-            try:
-                text = json.load(json_file)
-                print(text)
-            except:
-                print('Ошибка при десериализации')
-    except:
-        print('Файл не найден')
