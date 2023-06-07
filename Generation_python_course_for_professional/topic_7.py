@@ -115,3 +115,20 @@ def deserialization():
                 print('Ошибка при десериализации')
     except:
         print('Файл не найден')
+
+
+def is_good_password(pas):
+    is_good_len = False
+    is_lower = False
+    is_upper = False
+    is_digit = False
+    if len(pas) > 8:
+        is_good_len = True
+    for char in pas:
+        if not is_digit and char.isdigit():
+            is_digit = True
+        if not is_lower and char.islower():
+            is_lower = True
+        if not is_upper and char.isupper():
+            is_upper = True
+    return all((is_good_len, is_lower, is_upper, is_digit))
