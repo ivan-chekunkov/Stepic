@@ -132,3 +132,31 @@ def is_good_password(pas):
         if not is_upper and char.isupper():
             is_upper = True
     return all((is_good_len, is_lower, is_upper, is_digit))
+
+
+class PasswordError(Exception):
+    pass
+
+
+class LengthError(PasswordError):
+    pass
+
+
+class LetterError(PasswordError):
+    pass
+
+
+class DigitError(PasswordError):
+    pass
+
+
+def is_good_password2(pas):
+    if len(pas) < 9:
+        raise LengthError()
+    if not any(char.isupper() for char in pas):
+        raise LetterError()
+    if not any(char.islower() for char in pas):
+        raise LetterError()
+    if not any(char.isdigit() for char in pas):
+        raise DigitError()
+    return True
