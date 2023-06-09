@@ -160,3 +160,36 @@ def is_good_password2(pas):
     if not any(char.isdigit() for char in pas):
         raise DigitError()
     return True
+
+
+def it_s_better_than_the_matrix():
+    while True:
+        pas = input()
+        try:
+            if is_good_password2(pas):
+                print('Success!')
+                break
+        except LengthError:
+            print('LengthError')
+        except LetterError:
+            print('LetterError')
+        except DigitError:
+            print('DigitError')
+
+
+if __name__ == '__main__':
+    it_s_better_than_the_matrix()
+    # print(is_good_password2('41157081231232'))
+    # print(is_good_password('МойПарольСамыйЛучший111'))
+    # deserialization()
+    # print(get_weekday(5))
+    # readme_txt()
+    # data = {'a': [1, 2, 3], 'b': [4, 5, 6]}
+    # add_to_list_in_dict(data, 'b', 7)
+    # print(data)
+    # january_february()
+    # only_numbers()
+    # func_3()
+    # func_2()
+    # func_1()
+    pass
