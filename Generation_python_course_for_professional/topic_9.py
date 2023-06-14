@@ -33,3 +33,10 @@ def func1():
     ]
     index_max_num = max(enumerate(numbers), key=lambda x: x[1])
     print(index_max_num[0])
+
+
+def my_pow(number):
+    result = 0
+    for index, num in enumerate(str(number), 1):
+        result += int(num)**index
+    return result
