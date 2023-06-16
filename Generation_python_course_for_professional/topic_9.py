@@ -52,3 +52,16 @@ def func2():
     films = sorted(zip(names, budgets, box_offices), key=lambda x: x[0])
     for film in films:
         print(f'{film[0]}: {film[2]-film[1]}$')
+
+
+if __name__ == '__main__':
+    func2()
+    # print(my_pow(139))
+    # func1()
+    # numbers = [1, 'two', 3.0, 'четыре', 5, 6.0]
+    # print(custom_isinstance(numbers, (int, float)))
+    # data = [[-3, 4, 0, 1], [1, 1, -4], [0, 0], [9, 3]]
+    # print(is_greater(data, 10))
+    # print(non_negative_even([-8, -4, -2, 0, 2, 4, 8]))
+    # print(convert(15))
+    pass
