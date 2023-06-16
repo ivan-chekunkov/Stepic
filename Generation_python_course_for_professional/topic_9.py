@@ -65,3 +65,9 @@ if __name__ == '__main__':
     # print(non_negative_even([-8, -4, -2, 0, 2, 4, 8]))
     # print(convert(15))
     pass
+
+
+def power(degree):
+    def func(x):
+        return x**degree
+    return func
