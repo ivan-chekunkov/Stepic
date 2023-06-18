@@ -91,3 +91,18 @@ def sourcetemplate(url):
             result.append('&'.join(temp))
         return ''.join(result)
     return func
+
+
+def date_formatter(country_code):
+    def func(data: date):
+        country_format = {
+            'ru': '%d.%m.%Y',
+            'us': '%m-%d-%Y',
+            'ca': '%Y-%m-%d',
+            'br': '%d/%m/%Y',
+            'fr': '%d.%m.%Y',
+            'pt': '%d-%m-%Y',
+        }
+        pattern = country_format[country_code]
+        return datetime.strftime(data, pattern)
+    return func
