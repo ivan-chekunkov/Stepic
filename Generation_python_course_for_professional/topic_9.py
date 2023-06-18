@@ -77,3 +77,17 @@ def generator_square_polynom(a, b, c):
     def func(x):
         return a * x ** 2 + b * x + c
     return func
+
+
+def sourcetemplate(url):
+    def func(**kwargs):
+        result = [url, ]
+        if kwargs:
+            result.append('?')
+            temp = []
+            for key in sorted(kwargs):
+                val = kwargs[key]
+                temp.append(f'{key}={val}')
+            result.append('&'.join(temp))
+        return ''.join(result)
+    return func
