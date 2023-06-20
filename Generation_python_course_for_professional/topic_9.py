@@ -109,3 +109,19 @@ def date_formatter(country_code):
         pattern = country_format[country_code]
         return datetime.strftime(data, pattern)
     return func
+
+
+def sort_priority(values, group):
+    not_priority_nums = []
+    index = 0
+    while index < len(values):
+        if values[index] in group:
+            index += 1
+        else:
+            not_priority_nums.append(values[index])
+            del values[index]
+    values.sort()
+    not_priority_nums.sort()
+    for num in not_priority_nums:
+        values.append(num)
+    return values
