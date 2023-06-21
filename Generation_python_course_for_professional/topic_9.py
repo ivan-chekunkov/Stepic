@@ -125,3 +125,9 @@ def sort_priority(values, group):
     for num in not_priority_nums:
         values.append(num)
     return values
+
+
+def sort_priority2(values, group):
+    def comparator(x):
+        return x not in group, x
+    values.sort(key=comparator)
