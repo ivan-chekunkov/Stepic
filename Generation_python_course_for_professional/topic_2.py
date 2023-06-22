@@ -287,7 +287,8 @@ def files_in_s_file() -> None:
             return f'{round(size)} GB'
 
     data_file: list = []
-    with open(file='files.txt', mode='r', encoding='UTF-8') as file:
+    path_file = FILES_DIR + 'files.txt'
+    with open(file=path_file, mode='r', encoding='UTF-8') as file:
         lines = file.readlines()
         for line in lines:
             name_file, size, measure = line.split()
