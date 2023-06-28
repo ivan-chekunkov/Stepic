@@ -27,3 +27,29 @@ def im_in_hell():
     text = input()
     phone_number = set(get_all_numbers(text))
     print(*phone_number, sep='\n')
+
+
+def im_in_hell2():
+
+    def is_phone_number(phone):
+        sample1, sample2 = list('7-***-***-**-**'), list('8-***-****-****')
+        res = [phone[0]]
+        for char in phone[1:]:
+            if char == '-':
+                res.append('-')
+            if char.isdigit():
+                res.append('*')
+        if res[:15] == sample1 or res[:15] == sample2:
+            return True
+        return False
+
+    def get_all_numbers(text):
+        for c in range(len(text)):
+            chunk = text[c:c + 15]
+            if is_phone_number(chunk):
+                yield chunk
+
+    text = input()
+    phone_number = get_all_numbers(text)
+    print(*phone_number, sep='\n')
+    pass
