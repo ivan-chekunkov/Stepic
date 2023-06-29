@@ -1,3 +1,7 @@
+import re
+import sys
+
+
 def im_in_hell():
 
     def is_phone_number(phone):
@@ -53,3 +57,14 @@ def im_in_hell2():
     phone_number = get_all_numbers(text)
     print(*phone_number, sep='\n')
     pass
+
+
+def phone_numbers():
+    pattern = r'(\d+)[ -](\d+)[ -](\d+)'
+    for line in sys.stdin.readlines():
+        nums = re.search(pattern=pattern, string=line).groups()
+        print(
+            f'Код страны: {nums[0]}, '
+            f'Код города: {nums[1]}, '
+            f'Номер: {nums[2]}'
+        )
