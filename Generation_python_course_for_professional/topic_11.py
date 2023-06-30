@@ -68,3 +68,13 @@ def phone_numbers():
             f'Код города: {nums[1]}, '
             f'Номер: {nums[2]}'
         )
+
+
+def beegeek_online_school():
+    pattern = r'_\d+[A-Za-z]*_?'
+    for line in sys.stdin.readlines():
+        match = re.search(pattern=pattern, string=line)
+        if match:
+            print('True')
+        else:
+            print('False')
