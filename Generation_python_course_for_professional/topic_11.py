@@ -78,3 +78,11 @@ def beegeek_online_school():
             print('True')
         else:
             print('False')
+
+
+def identical_syllables():
+    pattern = r'\b(\w+)\1\b'
+    for line in sys.stdin.readlines():
+        match = re.search(pattern=pattern, string=line)
+        if match:
+            print(match.group())
