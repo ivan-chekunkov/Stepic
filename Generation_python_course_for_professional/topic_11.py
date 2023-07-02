@@ -86,3 +86,18 @@ def identical_syllables():
         match = re.search(pattern=pattern, string=line)
         if match:
             print(match.group())
+
+
+def beegeek():
+    pattern1 = r'bee.*bee'
+    pattern2 = r'\bgeek\b'
+    bee_counter, geek_counter = 0, 0
+    for line in sys.stdin.readlines():
+        match1 = re.search(pattern=pattern1, string=line)
+        match2 = re.search(pattern=pattern2, string=line)
+        if match1:
+            bee_counter += 1
+        if match2:
+            geek_counter += 1
+    print(bee_counter)
+    print(geek_counter)
