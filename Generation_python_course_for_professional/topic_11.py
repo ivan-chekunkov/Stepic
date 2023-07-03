@@ -101,3 +101,21 @@ def beegeek():
             geek_counter += 1
     print(bee_counter)
     print(geek_counter)
+
+
+def popularity():
+    pattern1 = r'(^beegeek.*beegeek$)|(^beegeek$)'
+    pattern2 = r'(^beegeek)|(beegeek$)'
+    pattern3 = r'.+beegeek.+'
+    sum_popularity = 0
+    for line in sys.stdin.readlines():
+        line = line.rstrip('\n')
+        if re.search(pattern=pattern1, string=line):
+            sum_popularity += 3
+            continue
+        if re.search(pattern=pattern2, string=line):
+            sum_popularity += 2
+            continue
+        if re.search(pattern=pattern3, string=line):
+            sum_popularity += 1
+    print(sum_popularity)
