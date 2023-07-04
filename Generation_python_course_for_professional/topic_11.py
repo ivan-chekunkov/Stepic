@@ -119,3 +119,14 @@ def popularity():
         if re.search(pattern=pattern3, string=line):
             sum_popularity += 1
     print(sum_popularity)
+
+
+def respect():
+    text = input()
+    pattern = (r'(Здравствуйте\.*)|(Доброе утро\.*)'
+               r'|(Добрый день\.*)|(Добрый вечер\.*)')
+    match = re.match(pattern=pattern, string=text, flags=re.IGNORECASE)
+    if match:
+        print('True')
+    else:
+        print('False')
