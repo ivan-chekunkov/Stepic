@@ -130,3 +130,30 @@ def respect():
         print('True')
     else:
         print('False')
+
+
+def social_network():
+    pattern = r'.*beegeek.*'
+    count_mes = 0
+    for line in sys.stdin.readlines():
+        if re.search(pattern=pattern, string=line, flags=re.I | re.M):
+            count_mes += 1
+    print(count_mes)
+
+    # 11.1 DONE
+    # 11.2 DONE
+    # 11.3 DONE
+    # 11.4 DONE
+    # 11.5 DONE
+    # 11.6 DONE
+
+
+if __name__ == '__main__':
+    social_network()
+    # respect()
+    # popularity()
+    # beegeek()
+    # identical_syllables()
+    # beegeek_online_school()
+    # phone_numbers()
+    # im_in_hell()
