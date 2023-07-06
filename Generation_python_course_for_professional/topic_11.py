@@ -157,3 +157,9 @@ if __name__ == '__main__':
     # beegeek_online_school()
     # phone_numbers()
     # im_in_hell()
+
+
+def multiple_split(string, delimiters):
+    pattern = '|'.join(map(re.escape, delimiters))
+    result = re.split(pattern, string,)
+    return result
