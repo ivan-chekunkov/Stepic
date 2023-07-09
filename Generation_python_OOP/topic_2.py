@@ -17,3 +17,12 @@ def bracket_sequence():
         else:
             return False
     return buffer == 0
+
+
+def inversions(sequence: list[int]) -> int:
+    result = 0
+    for index_one in range(0, len(sequence)):
+        for index_two in range(index_one + 1, len(sequence)):
+            if sequence[index_one] > sequence[index_two]:
+                result += 1
+    return result
