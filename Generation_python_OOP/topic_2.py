@@ -1,3 +1,6 @@
+from itertools import combinations
+
+
 def darts():
     num = int(input())
     for row in range(1, num + 1):
@@ -25,4 +28,13 @@ def inversions(sequence: list[int]) -> int:
         for index_two in range(index_one + 1, len(sequence)):
             if sequence[index_one] > sequence[index_two]:
                 result += 1
+    return result
+
+
+def inversions_2(sequence: list[int]) -> int:
+    result = 0
+    for seq in combinations(sequence, 2):
+        current_item, next_item = seq
+        if current_item > next_item:
+            result += 1
     return result
