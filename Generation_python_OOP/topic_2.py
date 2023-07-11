@@ -1,3 +1,4 @@
+from typing import Counter
 from itertools import combinations
 
 
@@ -38,3 +39,11 @@ def inversions_2(sequence: list[int]) -> int:
         if current_item > next_item:
             result += 1
     return result
+
+
+def pokemons():
+    result = 0
+    pokemons = Counter(line.rstrip() for line in sys.stdin.readlines())
+    for count in pokemons.values():
+        result += count - 1
+    print(result)
