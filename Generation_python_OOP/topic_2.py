@@ -1,3 +1,4 @@
+import sys
 from typing import Counter
 from itertools import combinations
 
@@ -47,3 +48,21 @@ def pokemons():
     for count in pokemons.values():
         result += count - 1
     print(result)
+
+
+def coordinates():
+    for line in sys.stdin.readlines():
+        x, y = line.strip('()\n').split(', ')
+        if (-90 <= float(x) <= 90) and (-180 <= float(y) <= 180):
+            print('True')
+        else:
+            print('False')
+
+
+if __name__ == '__main__':
+    coordinates()
+    # pokemons()
+    # print(inversions([3, 1, 4, 2]))
+    # print(bracket_sequence())
+    # darts()
+    pass
