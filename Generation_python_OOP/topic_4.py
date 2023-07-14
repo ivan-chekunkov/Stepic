@@ -14,3 +14,8 @@ class PiggyBank:
             raise ValueError('В копилке недостаточно монет')
         else:
             self.balance -= coins
+
+
+class Gun:
+    def shoot(self):
+        print('pif')
