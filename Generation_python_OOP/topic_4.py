@@ -19,3 +19,12 @@ class PiggyBank:
 class Gun:
     def shoot(self):
         print('pif')
+
+
+class User:
+    def __init__(self, name):
+        self.name = name
+        self.friends = 0
+
+    def add_friends(self, count):
+        self.friends += count
