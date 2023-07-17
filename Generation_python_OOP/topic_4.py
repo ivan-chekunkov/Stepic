@@ -1,3 +1,6 @@
+from math import pi
+
+
 class PiggyBank:
     def __init__(self, balance=0, volume=400):
         self.balance = balance
@@ -40,3 +43,10 @@ class House:
 
     def add_rooms(self, count):
         self.rooms += count
+
+
+class Circle:
+    def __innit__(self, radius):
+        self.radius = radius
+        self.diameter = radius * 2
+        self.area = pi * radius ** 2
