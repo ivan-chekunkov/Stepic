@@ -8,7 +8,5 @@ lowercase_with_words.py
 merge_files_together ReadMe.txt
 merge_files_together.py
 # Временное ограничение
-/Generation_python_course_for_beginners/TODO.txt
-/Generation_python_course_for_advanced
-/Generation_python_course_for_professional
 ReadMe.txt
+TODO.txt
