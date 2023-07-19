@@ -68,3 +68,15 @@ class Bee:
 
     def move_left(self, n):
         self.x -= n
+
+
+class Gun:
+    def __init__(self):
+        self.step = 1
+
+    def shoot(self):
+        if self.step % 2:
+            print('pif')
+        else:
+            print('paf')
+        self.step += 1
