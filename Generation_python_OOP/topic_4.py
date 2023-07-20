@@ -80,3 +80,21 @@ class Gun:
         else:
             print('paf')
         self.step += 1
+
+
+class Gun:
+    def __init__(self):
+        self.shots = 1
+
+    def shoot(self):
+        if self.shots % 2:
+            print('pif')
+        else:
+            print('paf')
+        self.shots += 1
+
+    def shots_count(self):
+        return self.shots - 1
+
+    def shots_reset(self):
+        self.shots = 1
