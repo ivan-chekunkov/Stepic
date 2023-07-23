@@ -126,3 +126,21 @@ class Vector:
 
     def abs(self):
         return (self.x ** 2 + self.y ** 2) ** 0.5
+
+
+class Numbers:
+    def __init__(self):
+        self.even_nums = []
+        self.odd_nums = []
+
+    def add_number(self, number):
+        if number % 2 == 0:
+            self.even_nums.append(number)
+        else:
+            self.odd_nums.append(number)
+
+    def get_even(self):
+        return list(self.even_nums)
+
+    def get_odd(self):
+        return list(self.odd_nums)
