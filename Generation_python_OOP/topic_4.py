@@ -144,3 +144,30 @@ class Numbers:
 
     def get_odd(self):
         return list(self.odd_nums)
+
+
+class TextHandler:
+    def __init__(self):
+        self.shortest_words = []
+        self.longest_words = []
+        self.min_len = float('inf')
+        self.max_len = 0
+
+    def add_words(self, text):
+        for word in text.split():
+            if len(word) < self.min_len:
+                self.shortest_words = []
+                self.min_len = len(word)
+            elif len(word) > self.max_len:
+                self.longest_words = []
+                self.max_len = len(word)
+            if len(word) == self.min_len:
+                self.shortest_words.append(word)
+            elif len(word) == self.max_len:
+                self.longest_words.append(word)
+
+    def get_shortest_words(self):
+        return self.shortest_words.copy()
+
+    def get_longest_words(self):
+        return self.longest_words.copy()
