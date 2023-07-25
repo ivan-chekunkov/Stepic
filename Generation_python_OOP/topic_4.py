@@ -171,3 +171,24 @@ class TextHandler:
 
     def get_longest_words(self):
         return self.longest_words.copy()
+
+
+class Todo:
+    def __init__(self):
+        self.things = []
+        self.min_priority = float('inf')
+        self.max_priority = 0
+
+    def add(self, thing, priority):
+        self.things.append((thing, priority))
+        self.min_priority = min(self.min_priority, priority)
+        self.max_priority = max(self.max_priority, priority)
+
+    def get_by_priority(self, n):
+        return [name for name, priority in self.things if priority == n]
+
+    def get_low_priority(self):
+        return self.get_by_priority(self.min_priority)
+
+    def get_high_priority(self):
+        return self.get_by_priority(self.max_priority)
