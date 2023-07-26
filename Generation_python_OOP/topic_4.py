@@ -192,3 +192,32 @@ class Todo:
 
     def get_high_priority(self):
         return self.get_by_priority(self.max_priority)
+
+
+class Postman:
+    def __init__(self):
+        self.delivery_data = []
+
+    def add_delivery(self, street, house, apartment):
+        self.delivery_data.append((street, house, apartment))
+
+    def get_houses_for_street(self, street):
+        temp = [house for st, house, _ in self.delivery_data if st == street]
+        temp_set = set(temp)
+        result = []
+        for elem in temp:
+            if elem in temp_set:
+                result.append(elem)
+                temp_set.discard(elem)
+        return result
+
+    def get_flats_for_house(self, street, house):
+        temp = [ap for st, home, ap in self.delivery_data if st ==
+                street and home == house]
+        temp_set = set(temp)
+        result = []
+        for elem in temp:
+            if elem in temp_set:
+                result.append(elem)
+                temp_set.discard(elem)
+        return result
