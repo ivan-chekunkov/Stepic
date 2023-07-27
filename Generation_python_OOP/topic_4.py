@@ -221,3 +221,29 @@ class Postman:
                 result.append(elem)
                 temp_set.discard(elem)
         return result
+
+
+class Wordplay:
+    def __init__(self, words=None):
+        if words is None:
+            words = []
+        self.words = words.copy()
+
+    def add_word(self, word):
+        if not word in self.words:
+            self.words.append(word)
+
+    def words_with_length(self, n):
+        return [word for word in self.words if len(word) == n]
+
+    def only_it_chars(self, word, chars):
+        return all([True if char in chars else False for char in word])
+
+    def not_in_word(self, word, chars):
+        return not any([True if char in word else False for char in chars])
+
+    def only(self, *args):
+        return [word for word in self.words if self.only_it_chars(word, args)]
+
+    def avoid(self, *args):
+        return [word for word in self.words if self.not_in_word(word, args)]
