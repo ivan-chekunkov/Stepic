@@ -247,3 +247,46 @@ class Wordplay:
 
     def avoid(self, *args):
         return [word for word in self.words if self.not_in_word(word, args)]
+
+
+class Knight:
+    def __init__(self, horizontal, vertical, color):
+        self.horizontal = horizontal
+        self.vertical = vertical
+        self.color = color
+        self.num_horizontal = {'a': 1, 'b': 2, 'c': 3, 'd': 4,
+                               'e': 5, 'f': 6, 'g': 7, 'h': 8}
+
+    def get_char(self):
+        return 'N'
+
+    def can_move(self, x, y) -> bool:
+        start_x = self.num_horizontal[self.horizontal]
+        start_y = self.vertical
+        if not 0 < y < 9:
+            return False
+        if not x in self.num_horizontal:
+            return False
+        if abs(self.num_horizontal[x] - start_x) == 0 or abs(y - start_y) == 0:
+            return False
+        s = abs(self.num_horizontal[x] - start_x) + abs(y - start_y)
+        if not s == 3:
+            return False
+        return True
+
+    def move_to(self, x, y):
+        if self.can_move(x, y):
+            self.horizontal = x
+            self.vertical = y
+
+    def draw_board(self):
+        for y in range(9, 1, -1):
+            for x in self.num_horizontal.keys():
+                if self.horizontal == x and self.vertical == y:
+                    symbol = self.get_char()
+                elif self.can_move(x, y):
+                    symbol = '*'
+                else:
+                    symbol = '.'
+                print(symbol, end='')
+            print()
