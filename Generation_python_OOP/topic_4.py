@@ -380,3 +380,20 @@ class HourClock:
         self._hours = hours
 
     hours = property(get_hours, set_hours)
+
+
+class Person:
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+        self._fullname = None
+
+    def get_fullname(self):
+        if self._fullname is None:
+            self._fullname = self.name + ' ' + self.surname
+        return self._fullname
+
+    def set_fullname(self, fullname):
+        self.name, self.surname = fullname.split()
+
+    fullname = property(get_fullname, set_fullname)
