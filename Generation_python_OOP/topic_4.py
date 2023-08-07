@@ -440,3 +440,12 @@ class Account:
     @password.setter
     def password(self, password):
         self._password = hash_function(password)
+
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    @classmethod
+    def from_diameter(cls, diameter):
+        return cls(diameter / 2)
