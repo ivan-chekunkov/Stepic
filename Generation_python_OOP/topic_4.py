@@ -449,3 +449,13 @@ class Circle:
     @classmethod
     def from_diameter(cls, diameter):
         return cls(diameter / 2)
+
+
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+
+    @classmethod
+    def square(cls, side):
+        return cls(side, side)
