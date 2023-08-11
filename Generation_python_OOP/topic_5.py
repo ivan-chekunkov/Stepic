@@ -25,3 +25,13 @@ class Book:
 
     def __repr__(self):
         return f"Book('{self.title}', '{self.author}', {self.year})"
+
+
+def quantify(iterable, predicate):
+    result = 0
+    if predicate is None:
+        predicate = bool
+    for item in iterable:
+        if predicate(item):
+            result += 1
+    return result
