@@ -35,3 +35,11 @@ def quantify(iterable, predicate):
         if predicate(item):
             result += 1
     return result
+
+
+def is_integer(string):
+    try:
+        int(string)
+    except:
+        return False
+    return True
