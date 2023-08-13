@@ -1,3 +1,6 @@
+import re
+from decimal import Decimal
+
 
 class Config:
     _instance = None
@@ -40,6 +43,14 @@ def quantify(iterable, predicate):
 def is_integer(string):
     try:
         int(string)
+    except:
+        return False
+    return True
+
+
+def is_decimal(string):
+    try:
+        Decimal(string)
     except:
         return False
     return True
