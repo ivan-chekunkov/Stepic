@@ -54,3 +54,10 @@ def is_decimal(string):
     except:
         return False
     return True
+
+
+def is_fraction(string):
+    if not string:
+        return False
+    regex_obj = re.compile(r'-?\d+/\d*[1-9]\d*')
+    return bool(regex_obj.fullmatch(string))
