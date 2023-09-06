@@ -7,6 +7,7 @@ __pycache__
 lowercase_with_words.py
 merge_files_together ReadMe.txt
 merge_files_together.py
+venv
 # Временное ограничение
 ReadMe.txt
 TODO.txt
