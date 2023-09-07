@@ -404,7 +404,7 @@ def the_zen_of_python():
 
 
 def zoo():
-    with open("zoo.json", "r", encoding="utf-8") as file:
+    with open(FILES_DIR + "zoo.json", "r", encoding="utf-8") as file:
         zoopark = ChainMap(*json.load(file))
     count_zoo = 0
     for count in zoopark.values():
