@@ -17,12 +17,14 @@ def i_am_a_kind_of_translator_myself():
 
 
 def func_1():
-    Fruit = namedtuple("Fruit", ["name", "color", "vitamins"])
+    Fruit = namedtuple("Fruit", ["name", "color", "vitamins"])  # noqa
 
 
 def func_2():
     Game = namedtuple("Game", "name developer publisher")
-    ExtendedGame = namedtuple("ExtendedGame", Game._fields + ("release_date", "price"))
+    ExtendedGame = namedtuple(  # noqa
+        "ExtendedGame", Game._fields + ("release_date", "price")
+    )
 
 
 Animal = namedtuple("Animal", ["name", "family", "sex", "color"])
@@ -58,7 +60,7 @@ def func_4():
         User("Russell", "Smith", "isaacson@comcast.net", "Bronze"),
         User("Megan", "Patterson", "hoangle@outlook.com", "Basic"),
     ]
-    STATUS = {"Gold": 1, "Silver": 2, "Bronze": 3, "Basic": 4}
+    STATUS = {"Gold": 1, "Silver": 2, "Bronze": 3, "Basic": 4}  # noqa
     sorted_users = sorted(users, key=lambda x: (STATUS[x.plan], x.email))
     for user in sorted_users:
         print(f"{user.name} {user.surname}")
@@ -71,7 +73,9 @@ Meeting = namedtuple("Meeting", ["name", "data"])
 
 
 def who_are_you_i_didnt_call_you():
-    with open(file=FILES_DIR + "/meetings.csv", mode="r", encoding="UTF-8") as file:
+    with open(
+        file=FILES_DIR + "/meetings.csv", mode="r", encoding="UTF-8"
+    ) as file:
         data = csv.DictReader(file)
         meetings = []
         pattern = "%d.%m.%Y.%H:%M"
@@ -278,7 +282,9 @@ def best_sender(messages: list, senders: list) -> str:
     count_words: defaultdict = defaultdict(int)
     for index in range(len(senders)):
         count_words[senders[index]] += len(messages[index].split())
-    sorted_words = sorted(count_words.items(), key=lambda x: (x[1], x[0]), reverse=True)
+    sorted_words = sorted(
+        count_words.items(), key=lambda x: (x[1], x[0]), reverse=True
+    )
     result = sorted_words[0]
     return result[0]
 
@@ -347,8 +353,12 @@ def func10():
             "True Detective": 2014,
         }
     )
-    data.sorted_keys = lambda reverse=False: sorted(data.keys(), reverse=reverse)
-    data.sorted_values = lambda reverse=False: sorted(data.values(), reverse=reverse)
+    data.sorted_keys = lambda reverse=False: sorted(
+        data.keys(), reverse=reverse
+    )
+    data.sorted_values = lambda reverse=False: sorted(
+        data.values(), reverse=reverse
+    )
     print(data.sorted_values(reverse=True))
 
 
@@ -413,8 +423,16 @@ def zoo():
 
 
 def the_bakery_magnate():
-    bread = {"булочка с кунжутом": 15, "обычная булочка": 10, "ржаная булочка": 15}
-    meat = {"куриный бифштекс": 50, "говяжий бифштекс": 70, "рыбный бифштекс": 40}
+    bread = {
+        "булочка с кунжутом": 15,
+        "обычная булочка": 10,
+        "ржаная булочка": 15,
+    }
+    meat = {
+        "куриный бифштекс": 50,
+        "говяжий бифштекс": 70,
+        "рыбный бифштекс": 40,
+    }
     sauce = {
         "сливочно-чесночный": 15,
         "кетчуп": 10,
