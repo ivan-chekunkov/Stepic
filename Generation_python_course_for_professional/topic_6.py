@@ -412,6 +412,40 @@ def zoo():
     print(count_zoo)
 
 
+def the_bakery_magnate():
+    bread = {"булочка с кунжутом": 15, "обычная булочка": 10, "ржаная булочка": 15}
+    meat = {"куриный бифштекс": 50, "говяжий бифштекс": 70, "рыбный бифштекс": 40}
+    sauce = {
+        "сливочно-чесночный": 15,
+        "кетчуп": 10,
+        "горчица": 10,
+        "барбекю": 15,
+        "чили": 15,
+    }
+    vegetables = {"лук": 10, "салат": 15, "помидор": 15, "огурцы": 10}
+    toppings = {"сыр": 25, "яйцо": 15, "бекон": 30}
+    ingredients = ChainMap(bread, meat, sauce, vegetables, toppings)
+    data = sorted(input().split(","))
+    summa = 0
+    result = {}
+    for val in data:
+        result[val] = result.get(val, 0) + 1
+        summa += ingredients[val]
+    max_spaces = 0
+    for key, val in result.items():
+        lenth = len(f"{key} x {val}")
+        if lenth > max_spaces:
+            max_spaces = lenth
+    for key, val in result.items():
+        lenth = max_spaces - len(f"{key} x {val}")
+        print(f"{key} {lenth*' '}x {val}")
+    lenth = len(f"ИТОГ: {summa}р")
+    if lenth > max_spaces:
+        max_spaces = lenth
+    print(f"{max_spaces*'-'}")
+    print(f"ИТОГ: {summa}р")
+
+
 if __name__ == "__main__":
     zoo()
     # the_zen_of_python()
