@@ -263,6 +263,22 @@ def condense_csv(filename: str, id_name: str):
     print(result)
 
 
+def merging_objects():
+    with open(
+        file=FILES_DIR + "data1.json", mode="r", encoding="UTF-8"
+    ) as file:
+        data1: dict = json.load(file)
+    with open(
+        file=FILES_DIR + "data2.json", mode="r", encoding="UTF-8"
+    ) as file:
+        data2: dict = json.load(file)
+    data1.update(data2)
+    with open(
+        file=FILES_DIR + "data_merge.json", mode="w", encoding="UTF-8"
+    ) as file:
+        json.dump(data1, file, indent=3)
+
+
 if __name__ == "__main__":
     # condense_csv('test.csv', 'ID')
     # sorting_by_column()
