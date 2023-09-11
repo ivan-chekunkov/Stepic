@@ -279,6 +279,26 @@ def merging_objects():
         json.dump(data1, file, indent=3)
 
 
+def merging_objects2():
+    with open(
+        file=FILES_DIR + "data1.json", mode="r", encoding="UTF-8"
+    ) as file:
+        data1: dict = json.load(file)
+    with open(
+        file=FILES_DIR + "data2.json", mode="r", encoding="UTF-8"
+    ) as file:
+        data2: dict = json.load(file)
+    data3: dict = data2.copy()
+    for key, val in data1.items():
+        if not data2.get(key):
+            data3[key] = val
+    with open(
+        file=FILES_DIR + "data_merge.json", mode="w", encoding="UTF-8"
+    ) as file:
+        data_merge = json.dumps(data3)
+        file.write(data_merge)
+
+
 if __name__ == "__main__":
     # condense_csv('test.csv', 'ID')
     # sorting_by_column()
