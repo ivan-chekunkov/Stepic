@@ -299,7 +299,16 @@ def merging_objects2():
         file.write(data_merge)
 
 
+def is_correct_json(string):
+    try:
+        json.loads(string)
+        return True
+    except json.decoder.JSONDecodeError:
+        return False
+
+
 if __name__ == "__main__":
+    merging_objects()
     # condense_csv('test.csv', 'ID')
     # sorting_by_column()
     # log_file()
