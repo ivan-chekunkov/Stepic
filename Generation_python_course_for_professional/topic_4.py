@@ -319,6 +319,21 @@ def count_files():
     print(count)
 
 
+def file_size():
+    name_file = FILES_DIR + "/workbook.zip"
+    size_full = 0
+    size_arh = 0
+    with zipfile.ZipFile(name_file, mode="r") as zip_file:
+        info = zip_file.infolist()
+        for name in info:
+            if name.is_dir():
+                continue
+            size_full += name.file_size
+            size_arh += name.compress_size
+    print(f"Объем исходных файлов: {size_full} байт(а)")
+    print(f"Объем сжатых файлов: {size_arh} байт(а)")
+
+
 if __name__ == "__main__":
     merging_objects()
     # condense_csv('test.csv', 'ID')
