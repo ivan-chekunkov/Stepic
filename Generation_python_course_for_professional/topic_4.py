@@ -334,6 +334,19 @@ def file_size():
     print(f"Объем сжатых файлов: {size_arh} байт(а)")
 
 
+def the_best_indicator():
+    name_file = FILES_DIR + "/workbook.zip"
+    compression_ratio = {}
+    with zipfile.ZipFile(name_file, mode="r") as zip_file:
+        info = zip_file.infolist()
+        for name in info:
+            if name.is_dir():
+                continue
+            compression = name.compress_size / name.file_size
+            compression_ratio[name.filename.split("/")[-1]] = compression
+    print(min(compression_ratio, key=lambda x: compression_ratio.get(x)))
+
+
 if __name__ == "__main__":
     merging_objects()
     # condense_csv('test.csv', 'ID')
