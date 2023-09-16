@@ -347,6 +347,20 @@ def the_best_indicator():
     print(min(compression_ratio, key=lambda x: compression_ratio.get(x)))
 
 
+def favorites():
+    name_file = FILES_DIR + "/workbook.zip"
+    result = []
+    with zipfile.ZipFile(name_file, mode="r") as zip_file:
+        info = zip_file.infolist()
+    for name in info:
+        if name.is_dir():
+            continue
+        if name.date_time >= (2021, 11, 30, 14, 22, 0):
+            result.append(name.filename.split("/")[-1])
+    result.sort()
+    print(*result, sep="\n")
+
+
 if __name__ == "__main__":
     merging_objects()
     # condense_csv('test.csv', 'ID')
