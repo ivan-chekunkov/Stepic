@@ -361,6 +361,28 @@ def favorites():
     print(*result, sep="\n")
 
 
+def formatted_output():
+    name_file = FILES_DIR + "/workbook.zip"
+    result = []
+    with zipfile.ZipFile(name_file, mode="r") as zip_file:
+        info = [i for i in zip_file.infolist() if not i.is_dir()]
+    for name in info:
+        date_time = datetime.datetime(*name.date_time)
+        data = (
+            name.filename.split("/")[-1],
+            date_time,
+            name.file_size,
+            name.compress_size,
+        )
+        result.append(data)
+    result.sort(key=lambda x: x[0].lower())
+    for data_file in result:
+        print(f"{data_file[0]}")
+        print(f"  Дата модификации файла: {data_file[1]}")
+        print(f"  Объем исходного файла: {data_file[2]} байт(а)")
+        print(f"  Объем сжатого файла: {data_file[3]} байт(а)\n")
+
+
 if __name__ == "__main__":
     merging_objects()
     # condense_csv('test.csv', 'ID')
