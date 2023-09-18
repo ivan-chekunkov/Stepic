@@ -383,6 +383,23 @@ def formatted_output():
         print(f"  Объем сжатого файла: {data_file[3]} байт(а)\n")
 
 
+def extract_this(zip_name, *args):
+    with zipfile.ZipFile(zip_name, "r") as zip_file:
+        if not args:
+            zip_file.extractall()
+        else:
+            info = zip_file.filelist
+            for name_file in args:
+                for inf in info:
+                    if name_file in inf.filename:
+                        full_name = inf.filename
+                        break
+                try:
+                    zip_file.extract(full_name)
+                except:
+                    continue
+
+
 if __name__ == "__main__":
     merging_objects()
     # condense_csv('test.csv', 'ID')
