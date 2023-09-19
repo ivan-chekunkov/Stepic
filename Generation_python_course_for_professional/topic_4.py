@@ -307,6 +307,34 @@ def is_correct_json(string):
         return False
 
 
+def work_json():
+    with open("data.json", "r", encoding="utf-8") as file_json:
+        data = json.load(file_json)
+    result = []
+    for el in data:
+        if type(el) == str:
+            a = el + "!"
+            result.append(a)
+            continue
+        elif type(el) == int:
+            result.append(el + 1)
+            continue
+        elif type(el) == bool:
+            result.append(not el)
+            continue
+        elif type(el) == list:
+            result.append(el + el)
+            continue
+        elif type(el) == dict:
+            el["newkey"] = None
+            result.append(el)
+            continue
+        elif type(el) == None:
+            continue
+    with open("updated_data.json", "w", encoding="utf-8") as file_json:
+        data = json.dump(result, file_json)
+
+
 def count_files():
     name_file = FILES_DIR + "/workbook.zip"
     count = 0
