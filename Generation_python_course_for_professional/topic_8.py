@@ -14,3 +14,9 @@ def func2(step, nums):
     if step < len(nums):
         print(f"Элемент {step}: {nums[step]}")
         func2(step + 1, nums)
+
+
+def triangle(h):
+    if h > 0:
+        print("*" * h)
+        triangle(h - 1)
