@@ -20,3 +20,9 @@ def triangle(h):
     if h > 0:
         print("*" * h)
         triangle(h - 1)
+
+
+def triangle2(h):
+    if h > 0:
+        triangle2(h - 1)
+        print("*" * h)
