@@ -421,3 +421,18 @@ def returns(datatype):
         return wrapper
 
     return decorator
+
+
+def takes(*datatypes):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            value = func(*args, **kwargs)
+            for arg in (*args, *kwargs.values()):
+                if not isinstance(arg, datatypes):
+                    raise TypeError
+            return value
+
+        return wrapper
+
+    return decorator
