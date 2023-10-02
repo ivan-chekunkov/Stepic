@@ -436,3 +436,18 @@ def takes(*datatypes):
         return wrapper
 
     return decorator
+
+
+def add_attrs(**attrs):
+    def decorator(func):
+        for key, val in attrs.items():
+            func.__dict__[key] = val
+
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            value = func(*args, **kwargs)
+            return value
+
+        return wrapper
+
+    return decorator
