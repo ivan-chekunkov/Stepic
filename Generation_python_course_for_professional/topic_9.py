@@ -451,3 +451,18 @@ def add_attrs(**attrs):
         return wrapper
 
     return decorator
+
+
+def ignore_exception(*exceptions):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            try:
+                value = func(*args, **kwargs)
+                return value
+            except exceptions as err:
+                print(f"Исключение {type(err).__name__} обработано")
+
+        return wrapper
+
+    return decorator
