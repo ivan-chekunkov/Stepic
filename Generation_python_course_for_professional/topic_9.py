@@ -466,3 +466,48 @@ def ignore_exception(*exceptions):
         return wrapper
 
     return decorator
+
+
+class MaxRetriesException(Exception):
+    pass
+
+
+def retry(times: int):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            for _ in range(times):
+                try:
+                    value = func(*args, **kwargs)
+                    return value
+                except:
+                    pass
+            else:
+                raise MaxRetriesException
+
+        return wrapper
+
+    return decorator
+
+
+# if __name__ == '__main__':
+#     numbers = [8, 3, 1, 2, 5, 4, 7, 6]
+#     group = {5, 7, 2, 3}
+#     sort_priority2(numbers, group)
+
+#     print(numbers)
+
+#     # date_ru = date_formatter('ru')
+#     # today = date(2022, 1, 25)
+#     # print(date_ru(today))
+
+#     # url = 'https://all_for_comfort_life.com'
+#     # load = sourcetemplate(url)
+#     # print(load(smartphone='iPhone', notebook='huawei', sale=True))
+
+#     # f = generator_square_polynom(1, 2, 1)
+#     # print(f(5))
+
+#     # square = power(2)
+#     # print(square(5))
+#     pass
