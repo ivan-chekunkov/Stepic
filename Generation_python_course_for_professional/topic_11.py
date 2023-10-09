@@ -151,6 +151,13 @@ def under_the_words():
     print(len(re.findall(regex, text)))
 
 
+def words():
+    text = input()
+    pattern = input()
+    regex = r"\b{}\b".format(pattern)
+    print(len(re.findall(regex, text)))
+
+
 if __name__ == "__main__":
     social_network()
     # respect()
