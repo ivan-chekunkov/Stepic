@@ -158,6 +158,13 @@ def words():
     print(len(re.findall(regex, text)))
 
 
+def the_same_and_different():
+    pattern = input()
+    text = input()
+    regex = r"\b{}(se|ze)\b".format(pattern[:-2])
+    print(len(re.findall(regex, text, re.IGNORECASE)))
+
+
 if __name__ == "__main__":
     social_network()
     # respect()
