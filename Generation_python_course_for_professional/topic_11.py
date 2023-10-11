@@ -165,6 +165,15 @@ def the_same_and_different():
     print(len(re.findall(regex, text, re.IGNORECASE)))
 
 
+def the_same_and_different_2():
+    pattern = input()
+    text = input()
+    regex = r"\b{}(or|our)\b".format(
+        pattern[:-2] if pattern.endswith("or") else pattern[:-3]
+    )
+    print(len(re.findall(regex, text, re.IGNORECASE)))
+
+
 if __name__ == "__main__":
     social_network()
     # respect()
