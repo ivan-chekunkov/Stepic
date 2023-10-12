@@ -174,6 +174,13 @@ def the_same_and_different_2():
     print(len(re.findall(regex, text, re.IGNORECASE)))
 
 
+def abbreviate(phrase):
+    result = []
+    regex = r"(\w|[A-Z])[a-z]*"
+    result.extend(re.findall(regex, phrase))
+    return "".join(result).upper()
+
+
 if __name__ == "__main__":
     social_network()
     # respect()
