@@ -181,6 +181,13 @@ def abbreviate(phrase):
     return "".join(result).upper()
 
 
+def html():
+    input_text = sys.stdin.read()
+    regex = r"<a.+?\"(.+?)\">(.+?)</a>"
+    for http, text in re.findall(regex, input_text):
+        print("{}, {}".format(http, text))
+
+
 if __name__ == "__main__":
     social_network()
     # respect()
