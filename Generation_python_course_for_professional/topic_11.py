@@ -188,6 +188,32 @@ def html():
         print("{}, {}".format(http, text))
 
 
+def html_2():
+    input_text = sys.stdin.read()
+    regex = r"<\w.*?>"
+
+    def tag_a(data):
+        name = re.search(r"<(\w*)", data).group(1)
+        atr = re.findall(r" (\S*?)=", data)
+        return name, atr
+
+    result = {}
+    for text in re.findall(regex, input_text):
+        name, atr = tag_a(text)
+        if result.get(name, False):
+            result[name] = list(set(result[name]).union(atr))
+            continue
+        result[name] = atr
+    sort_res = sorted(result.keys())
+    for name in sort_res:
+        print(name, end=": ")
+        atr = result[name]
+        if atr:
+            atr.sort()
+            print(*atr, sep=", ", end="")
+        print()
+
+
 if __name__ == "__main__":
     social_network()
     # respect()
