@@ -214,6 +214,12 @@ def html_2():
         print()
 
 
+def normalize_jpeg(filename):
+    return re.sub(
+        r"jpeg$|jpg$", r"jpg", filename, flags=re.IGNORECASE | re.MULTILINE
+    )
+
+
 if __name__ == "__main__":
     social_network()
     # respect()
