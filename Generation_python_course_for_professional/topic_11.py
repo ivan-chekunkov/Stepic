@@ -220,6 +220,10 @@ def normalize_jpeg(filename):
     )
 
 
+def normalize_whitespace(string):
+    return re.sub(r" {2,}", r" ", string=string)
+
+
 if __name__ == "__main__":
     social_network()
     # respect()
