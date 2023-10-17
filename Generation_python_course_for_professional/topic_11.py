@@ -1,5 +1,6 @@
 import re
 import sys
+import keyword
 
 
 def im_in_hell():
@@ -222,6 +223,14 @@ def normalize_jpeg(filename):
 
 def normalize_whitespace(string):
     return re.sub(r" {2,}", r" ", string=string)
+
+
+def keywords():
+    reg_kwlist: list = sorted(
+        keyword.kwlist, key=lambda x: len(x), reverse=True
+    )
+    regex = "|".join(reg_kwlist)
+    print(re.sub(regex, r"<kw>", input(), flags=re.IGNORECASE))
 
 
 if __name__ == "__main__":
