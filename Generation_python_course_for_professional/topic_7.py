@@ -4,30 +4,41 @@ import json
 
 
 def func_1():
-    blog_posts = [{'Photos': 3, 'Likes': 21, 'Comments': 2},
-                  {'Likes': 13, 'Comments': 2, 'Shares': 1},
-                  {'Photos': 5, 'Likes': 33, 'Comments': 8, 'Shares': 3},
-                  {'Comments': 4, 'Shares': 2},
-                  {'Photos': 8, 'Comments': 1, 'Shares': 1},
-                  {'Photos': 3, 'Likes': 19, 'Comments': 3}]
+    blog_posts = [
+        {"Photos": 3, "Likes": 21, "Comments": 2},
+        {"Likes": 13, "Comments": 2, "Shares": 1},
+        {"Photos": 5, "Likes": 33, "Comments": 8, "Shares": 3},
+        {"Comments": 4, "Shares": 2},
+        {"Photos": 8, "Comments": 1, "Shares": 1},
+        {"Photos": 3, "Likes": 19, "Comments": 3},
+    ]
     total_likes = 0
     for post in blog_posts:
         try:
-            total_likes += post['Likes']
+            total_likes += post["Likes"]
         except:
             total_likes -= 1
     print(total_likes)
 
 
 def func_2():
-    food = ['chocolate', 'chicken', 'corn', 'sandwich',
-            'soup', 'potatoes', 'beef', 'lox', 'lemonade']
+    food = [
+        "chocolate",
+        "chicken",
+        "corn",
+        "sandwich",
+        "soup",
+        "potatoes",
+        "beef",
+        "lox",
+        "lemonade",
+    ]
     fifth = []
     for x in food:
         try:
             fifth.append(x[4])
         except:
-            fifth.append('_')
+            fifth.append("_")
     print(fifth)
 
 
@@ -64,9 +75,9 @@ def january_february():
         num = int(input())
         print(months[num])
     except KeyError:
-        print('Введено число из недопустимого диапазона')
+        print("Введено число из недопустимого диапазона")
     except ValueError:
-        print('Введено некорректное значение')
+        print("Введено некорректное значение")
 
 
 def add_to_list_in_dict(data: dict, key, element):
@@ -79,28 +90,35 @@ def add_to_list_in_dict(data: dict, key, element):
 def readme_txt():
     name_file = input()
     try:
-        with open(name_file, 'r') as file:
+        with open(name_file, "r") as file:
             text = file.read()
             print(text)
     except FileNotFoundError:
-        print('​Файл не найден')
+        print("​Файл не найден")
 
 
 def get_weekday(number):
-    week = {1: "Понедельник", 2: "Вторник", 3: "Среда",
-            4: "Четверг", 5: "Пятница", 6: "Суббота", 7: "Воскресенье"}
+    week = {
+        1: "Понедельник",
+        2: "Вторник",
+        3: "Среда",
+        4: "Четверг",
+        5: "Пятница",
+        6: "Суббота",
+        7: "Воскресенье",
+    }
     if type(number) != int:
-        raise TypeError('Аргумент не является целым числом')
+        raise TypeError("Аргумент не является целым числом")
     if number not in range(1, 8):
-        raise ValueError('Аргумент не принадлежит требуемому диапазону')
+        raise ValueError("Аргумент не принадлежит требуемому диапазону")
     return week[number]
 
 
 def get_id(names: list, name: str) -> int:
     if not isinstance(name, str):
-        raise TypeError('Имя не является строкой')
+        raise TypeError("Имя не является строкой")
     if not name.istitle() or not name.isalpha():
-        raise ValueError('Имя не является корректным')
+        raise ValueError("Имя не является корректным")
     return len(names) + 1
 
 
@@ -112,9 +130,9 @@ def deserialization():
                 text = json.load(json_file)
                 print(text)
             except:
-                print('Ошибка при десериализации')
+                print("Ошибка при десериализации")
     except:
-        print('Файл не найден')
+        print("Файл не найден")
 
 
 def is_good_password(pas):
@@ -167,17 +185,17 @@ def it_s_better_than_the_matrix():
         pas = input()
         try:
             if is_good_password2(pas):
-                print('Success!')
+                print("Success!")
                 break
         except LengthError:
-            print('LengthError')
+            print("LengthError")
         except LetterError:
-            print('LetterError')
+            print("LetterError")
         except DigitError:
-            print('DigitError')
+            print("DigitError")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     it_s_better_than_the_matrix()
     # print(is_good_password2('41157081231232'))
     # print(is_good_password('МойПарольСамыйЛучший111'))
