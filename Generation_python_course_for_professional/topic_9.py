@@ -263,3 +263,15 @@ def sandwich(func):
         return result
 
     return wrapper
+
+
+def upper_print(func):
+    def wrapper(*args, **kwargs):
+        args = tuple(i.upper() if isinstance(i, str) else i for i in args)
+        kwargs = dict((k, v.upper()) for k, v in kwargs.items())
+        return func(*args, **kwargs)
+
+    return wrapper
+
+
+print = upper_print(print)
