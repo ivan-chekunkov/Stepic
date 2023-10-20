@@ -275,3 +275,12 @@ def upper_print(func):
 
 
 print = upper_print(print)
+
+
+def do_twice(func):
+    def wrapper(*args, **kwargs):
+        for _ in range(2):
+            result = func(*args, **kwargs)
+        return result
+
+    return wrapper
