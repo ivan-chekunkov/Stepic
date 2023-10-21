@@ -284,3 +284,10 @@ def do_twice(func):
         return result
 
     return wrapper
+
+
+def reverse_args(func):
+    def wrapper(*args, **kwargs):
+        return func(*reversed(args), **kwargs)
+
+    return wrapper
