@@ -291,3 +291,14 @@ def reverse_args(func):
         return func(*reversed(args), **kwargs)
 
     return wrapper
+
+
+def exception_decorator(func):
+    def wrapper(*args, **kwargs):
+        try:
+            result = func(*args, **kwargs)
+        except:
+            return None, "При вызове функции произошла ошибка"
+        return result, "Функция выполнилась без ошибок"
+
+    return wrapper

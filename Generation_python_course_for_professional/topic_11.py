@@ -233,6 +233,10 @@ def keywords():
     print(re.sub(regex, r"<kw>", input(), flags=re.IGNORECASE))
 
 
+def first_char():
+    print(re.sub(r"\b(\w)(\w)", r"\2\1", input()))
+
+
 if __name__ == "__main__":
     social_network()
     # respect()
