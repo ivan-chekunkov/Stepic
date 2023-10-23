@@ -297,8 +297,23 @@ def exception_decorator(func):
     def wrapper(*args, **kwargs):
         try:
             result = func(*args, **kwargs)
-        except:
+        except Exception:
             return None, "При вызове функции произошла ошибка"
         return result, "Функция выполнилась без ошибок"
+
+    return wrapper
+
+
+def takes_positive(func):
+    def wrapper(*args, **kwargs):
+        val = [*args, *kwargs.values()]
+        if all(map(lambda x: isinstance(x, int), val)):
+            if all(map(lambda x: x > 0, val)):
+                result = func(*args, **kwargs)
+                return result
+            else:
+                raise ValueError
+        else:
+            raise TypeError
 
     return wrapper
