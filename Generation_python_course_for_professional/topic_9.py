@@ -317,3 +317,12 @@ def takes_positive(func):
             raise TypeError
 
     return wrapper
+
+
+def square(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        value = func(*args, **kwargs) ** 2
+        return value
+
+    return wrapper
