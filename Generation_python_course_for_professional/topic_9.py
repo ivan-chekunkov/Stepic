@@ -337,3 +337,16 @@ def returns_string(func):
         raise TypeError
 
     return wrapper
+
+
+def trace(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        print(
+            f"TRACE: вызов {func.__name__}() с аргументами: {args}, {kwargs}"
+        )
+        value = func(*args, **kwargs)
+        print(f"TRACE: возвращаемое значение {func.__name__}(): {repr(value)}")
+        return value
+
+    return wrapper
