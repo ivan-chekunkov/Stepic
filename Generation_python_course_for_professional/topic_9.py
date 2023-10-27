@@ -350,3 +350,17 @@ def trace(func):
         return value
 
     return wrapper
+
+
+def prefix(string: str, to_the_end: bool = False):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            value = func(*args, **kwargs)
+            if to_the_end:
+                return value + string
+            return string + value
+
+        return wrapper
+
+    return decorator
