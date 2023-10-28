@@ -364,3 +364,15 @@ def prefix(string: str, to_the_end: bool = False):
         return wrapper
 
     return decorator
+
+
+def make_html(tag):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            value = func(*args, **kwargs)
+            return f"<{tag}>{value}</{tag}>"
+
+        return wrapper
+
+    return decorator
