@@ -389,3 +389,21 @@ def repeat(times: int):
         return wrapper
 
     return decorator
+
+
+def strip_range(start: int, end: int, char: str = "."):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            value = func(*args, **kwargs)
+            result = []
+            for index, el in enumerate(str(value)):
+                if start <= index < end:
+                    result.append(char)
+                else:
+                    result.append(el)
+            return "".join(result)
+
+        return wrapper
+
+    return decorator
