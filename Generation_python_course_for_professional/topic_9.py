@@ -407,3 +407,17 @@ def strip_range(start: int, end: int, char: str = "."):
         return wrapper
 
     return decorator
+
+
+def returns(datatype):
+    def decorator(func):
+        @functools.wraps(func)
+        def wrapper(*args, **kwargs):
+            value = func(*args, **kwargs)
+            if isinstance(value, datatype):
+                return value
+            raise TypeError
+
+        return wrapper
+
+    return decorator
