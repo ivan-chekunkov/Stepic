@@ -237,8 +237,25 @@ def first_char():
     print(re.sub(r"\b(\w)(\w)", r"\2\1", input()))
 
 
+def multiplying_strings():
+    regex = r"(?P<num>\d+)\((?P<word>[a-z]+?)\)"
+    text = input()
+    while True:
+        reg_match = re.search(regex, text)
+        if reg_match:
+            text = re.sub(
+                regex,
+                lambda x: int(x["num"]) * x["word"],
+                text,
+            )
+        else:
+            break
+    print(text)
+
+
 if __name__ == "__main__":
-    social_network()
+    multiplying_strings()
+    # social_network()
     # respect()
     # popularity()
     # beegeek()
