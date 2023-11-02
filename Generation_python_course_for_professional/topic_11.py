@@ -27,7 +27,9 @@ def im_in_hell():
 
     def get_all_numbers(text):
         for c in range(len(text)):
-            chunk = text[c : c + 15]
+            start = c
+            end = c + 15
+            chunk = text[start:end]
             if is_phone_number(chunk):
                 yield chunk
 
@@ -51,7 +53,9 @@ def im_in_hell2():
 
     def get_all_numbers(text):
         for c in range(len(text)):
-            chunk = text[c : c + 15]
+            start = c
+            end = c + 15
+            chunk = text[start:end]
             if is_phone_number(chunk):
                 yield chunk
 
@@ -253,8 +257,18 @@ def multiplying_strings():
     print(text)
 
 
+def repeated_words():
+    regex = r"\b(\w+)\W+(\1)\b"
+    text = input()
+    while True:
+        text, num = re.subn(regex, r"\1", text)
+        if not num:
+            break
+    print(text)
+
+
 if __name__ == "__main__":
-    multiplying_strings()
+    # multiplying_strings()
     # social_network()
     # respect()
     # popularity()
@@ -263,3 +277,4 @@ if __name__ == "__main__":
     # beegeek_online_school()
     # phone_numbers()
     # im_in_hell()
+    pass
