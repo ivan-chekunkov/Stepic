@@ -267,6 +267,12 @@ def repeated_words():
     print(text)
 
 
+def comments():
+    text = sys.stdin.read()
+    regex = r'\n#.*?$|\s*""".*?"""|\n? *#.*?$'
+    print(re.sub(regex, "", text, flags=re.S | re.M))
+
+
 if __name__ == "__main__":
     # multiplying_strings()
     # social_network()
