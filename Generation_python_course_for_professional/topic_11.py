@@ -273,6 +273,11 @@ def comments():
     print(re.sub(regex, "", text, flags=re.S | re.M))
 
 
+def semicolon():
+    result = re.split(r"\s*[,;.]\s*", input())
+    print(*result)
+
+
 if __name__ == "__main__":
     # multiplying_strings()
     # social_network()
