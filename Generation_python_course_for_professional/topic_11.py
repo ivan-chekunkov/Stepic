@@ -278,6 +278,13 @@ def semicolon():
     print(*result)
 
 
+def logical_expression():
+    result = re.split(
+        r"\s*and\s*|\s*or\s*|\s*\|\s*|\s*\&\s*", input(), flags=re.I
+    )
+    print(", ".join(result))
+
+
 if __name__ == "__main__":
     # multiplying_strings()
     # social_network()
