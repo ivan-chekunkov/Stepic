@@ -285,6 +285,15 @@ def logical_expression():
     print(", ".join(result))
 
 
+def multiple_split(string, delimiters):
+    pattern = "|".join(map(re.escape, delimiters))
+    result = re.split(
+        pattern,
+        string,
+    )
+    return result
+
+
 if __name__ == "__main__":
     # multiplying_strings()
     # social_network()
