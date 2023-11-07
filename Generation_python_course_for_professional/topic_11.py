@@ -294,6 +294,15 @@ def multiple_split(string, delimiters):
     return result
 
 
+def sum_of_numbers():
+    pattern = re.compile("\d+")
+    pos, endpos = map(int, input().split(" "))
+    text = input()
+    result = pattern.findall(text, pos, endpos)
+    res = sum(map(int, result))
+    print(res)
+
+
 if __name__ == "__main__":
     # multiplying_strings()
     # social_network()
