@@ -295,7 +295,7 @@ def multiple_split(string, delimiters):
 
 
 def sum_of_numbers():
-    pattern = re.compile("\d+")
+    pattern = re.compile(r"\d+")
     pos, endpos = map(int, input().split(" "))
     text = input()
     result = pattern.findall(text, pos, endpos)
