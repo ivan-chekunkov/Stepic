@@ -404,13 +404,10 @@ def the_zen_of_python():
     for key in sorted(counter):
         print(f"{key}: {counter[key]}")
 
-    # 6.1 done
-    # 6.2 done
-    # 6.3 done
-    # 6.4 done
-    # 6.5 done
-    # 6.6 done
-    # 6.7 done
+
+def in_search_of_words():
+    words = Counter(input().lower().split())
+    print(words.most_common()[0][0])
 
 
 def zoo():
