@@ -410,6 +410,16 @@ def in_search_of_words():
     print(words.most_common()[0][0])
 
 
+def in_search_of_words_2():
+    words = Counter(input().lower().split())
+    min_count = words.most_common()[::-1][0][1]
+    result = []
+    for elem in words.items():
+        if elem[1] == min_count:
+            result.append(elem[0])
+    print(", ".join(sorted(result)))
+
+
 def zoo():
     with open(FILES_DIR + "zoo.json", "r", encoding="utf-8") as file:
         zoopark = ChainMap(*json.load(file))
