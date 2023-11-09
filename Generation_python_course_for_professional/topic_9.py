@@ -1,8 +1,9 @@
+import functools
 from datetime import date, datetime
 
 
 def convert(number):
-    return f'{number:b}', f'{number:o}', f'{number:X}'
+    return f"{number:b}", f"{number:o}", f"{number:X}"
 
 
 def non_negative_even(numbers):
@@ -23,16 +24,106 @@ def custom_isinstance(objects, typeinfo):
 
 def func1():
     numbers = [
-        -7724, 5023, 3197, -102, -4129, -880, 5857, -2866, -8913, 1195, 9809,
-        5347, -8071, 903, 3030, -4347, -3354, 1024, 8670, 4210, -5228, 8900,
-        4823, -2002, 4900, 9520, -3658, 1104, -9554, 3064, 9632, -8701, 3384,
-        4370, 2034, 7822, -9694, 3347, 7440, -8459, 3238, -5193, -3381, 5281,
-        9022, 5559, 7593, -6540, -6204, -2483, 8729, 5810, -8254, -9846,
-        -1801, 4882, 3838, -3140, 7609, -3325, 6026, 2994, -1677, 1266,
-        -1893, -4408, -5722, -2841, 9812, 5837, -7474, 4624, -664, 6998,
-        7888, -971, 8810, 3812, -5396, 2593, 512, -4634, 9735, -3062, 9031,
-        -9300, 3657, 6332, 7552, 8125, -725, 4392, 1727, 8194, -2828,
-        -4314, -8967, -7912, -1363, -5957
+        -7724,
+        5023,
+        3197,
+        -102,
+        -4129,
+        -880,
+        5857,
+        -2866,
+        -8913,
+        1195,
+        9809,
+        5347,
+        -8071,
+        903,
+        3030,
+        -4347,
+        -3354,
+        1024,
+        8670,
+        4210,
+        -5228,
+        8900,
+        4823,
+        -2002,
+        4900,
+        9520,
+        -3658,
+        1104,
+        -9554,
+        3064,
+        9632,
+        -8701,
+        3384,
+        4370,
+        2034,
+        7822,
+        -9694,
+        3347,
+        7440,
+        -8459,
+        3238,
+        -5193,
+        -3381,
+        5281,
+        9022,
+        5559,
+        7593,
+        -6540,
+        -6204,
+        -2483,
+        8729,
+        5810,
+        -8254,
+        -9846,
+        -1801,
+        4882,
+        3838,
+        -3140,
+        7609,
+        -3325,
+        6026,
+        2994,
+        -1677,
+        1266,
+        -1893,
+        -4408,
+        -5722,
+        -2841,
+        9812,
+        5837,
+        -7474,
+        4624,
+        -664,
+        6998,
+        7888,
+        -971,
+        8810,
+        3812,
+        -5396,
+        2593,
+        512,
+        -4634,
+        9735,
+        -3062,
+        9031,
+        -9300,
+        3657,
+        6332,
+        7552,
+        8125,
+        -725,
+        4392,
+        1727,
+        8194,
+        -2828,
+        -4314,
+        -8967,
+        -7912,
+        -1363,
+        -5957,
     ]
     index_max_num = max(enumerate(numbers), key=lambda x: x[1])
     print(index_max_num[0])
@@ -41,23 +132,47 @@ def func1():
 def my_pow(number):
     result = 0
     for index, num in enumerate(str(number), 1):
-        result += int(num)**index
+        result += int(num) ** index
     return result
 
 
 def func2():
-    names = ['Moana', 'Cars', 'Zootopia', 'Ratatouille',
-             'Coco', 'Inside Out', 'Finding Nemo', 'Frozen']
-    budgets = [150000000, 120000000, 150000000, 150000000,
-               180000000, 175000000, 94000000, 150000000]
-    box_offices = [643331111, 462216280, 1023784195, 620702951,
-                   807082196, 857611174, 940335536, 1280802282]
+    names = [
+        "Moana",
+        "Cars",
+        "Zootopia",
+        "Ratatouille",
+        "Coco",
+        "Inside Out",
+        "Finding Nemo",
+        "Frozen",
+    ]
+    budgets = [
+        150000000,
+        120000000,
+        150000000,
+        150000000,
+        180000000,
+        175000000,
+        94000000,
+        150000000,
+    ]
+    box_offices = [
+        643331111,
+        462216280,
+        1023784195,
+        620702951,
+        807082196,
+        857611174,
+        940335536,
+        1280802282,
+    ]
     films = sorted(zip(names, budgets, box_offices), key=lambda x: x[0])
     for film in films:
-        print(f'{film[0]}: {film[2]-film[1]}$')
+        print(f"{film[0]}: {film[2]-film[1]}$")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     func2()
     # print(my_pow(139))
     # func1()
@@ -73,41 +188,47 @@ if __name__ == '__main__':
 def power(degree):
     def func(x):
         return x**degree
+
     return func
 
 
 def generator_square_polynom(a, b, c):
     def func(x):
-        return a * x ** 2 + b * x + c
+        return a * x**2 + b * x + c
+
     return func
 
 
 def sourcetemplate(url):
     def func(**kwargs):
-        result = [url, ]
+        result = [
+            url,
+        ]
         if kwargs:
-            result.append('?')
+            result.append("?")
             temp = []
             for key in sorted(kwargs):
                 val = kwargs[key]
-                temp.append(f'{key}={val}')
-            result.append('&'.join(temp))
-        return ''.join(result)
+                temp.append(f"{key}={val}")
+            result.append("&".join(temp))
+        return "".join(result)
+
     return func
 
 
 def date_formatter(country_code):
     def func(data: date):
         country_format = {
-            'ru': '%d.%m.%Y',
-            'us': '%m-%d-%Y',
-            'ca': '%Y-%m-%d',
-            'br': '%d/%m/%Y',
-            'fr': '%d.%m.%Y',
-            'pt': '%d-%m-%Y',
+            "ru": "%d.%m.%Y",
+            "us": "%m-%d-%Y",
+            "ca": "%Y-%m-%d",
+            "br": "%d/%m/%Y",
+            "fr": "%d.%m.%Y",
+            "pt": "%d-%m-%Y",
         }
         pattern = country_format[country_code]
         return datetime.strftime(data, pattern)
+
     return func
 
 
@@ -130,4 +251,15 @@ def sort_priority(values, group):
 def sort_priority2(values, group):
     def comparator(x):
         return x not in group, x
+
     values.sort(key=comparator)
+
+
+def sandwich(func):
+    def wrapper(*args, **kwargs):
+        print("---- Верхний ломтик хлеба ----")
+        result = func(*args, **kwargs)
+        print("---- Нижний ломтик хлеба ----")
+        return result
+
+    return wrapper
