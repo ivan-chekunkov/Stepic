@@ -5,6 +5,7 @@ import csv
 import datetime
 import os
 import json
+import sys
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -428,6 +429,14 @@ def in_search_of_words_3():
         if elem[1] == min_count:
             result.append(elem[0])
     print(sorted(result)[-1])
+
+
+def still_worthy():
+    students = Counter()
+    for elem in sys.stdin.read().strip().split("\n"):
+        key, val = elem.split()
+        students[key] = int(val)
+    print(students.most_common()[-2][0])
 
 
 def zoo():
