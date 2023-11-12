@@ -439,6 +439,31 @@ def still_worthy():
     print(students.most_common()[-2][0])
 
 
+def func_counter():
+    data = Counter(
+        "aksjaskfjsklfjdslkfjajfopewtoieqpwdpqworiiqjskanvmcxbmpewrqopkqwlmdzczmxvmvlnjpjqpkqzxvmbowiqeorewi"
+    )
+
+    def min_values():
+        min_count = data.most_common()[-1][1]
+        result = []
+        for elem in data.items():
+            if elem[1] == min_count:
+                result.append(elem)
+        return result
+
+    def max_values():
+        max_count = data.most_common()[0][1]
+        result = []
+        for elem in data.items():
+            if elem[1] == max_count:
+                result.append(elem)
+        return result
+
+    data.min_values = min_values
+    data.max_values = max_values
+
+
 def zoo():
     with open(FILES_DIR + "zoo.json", "r", encoding="utf-8") as file:
         zoopark = ChainMap(*json.load(file))
