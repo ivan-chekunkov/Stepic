@@ -441,7 +441,7 @@ def still_worthy():
 
 def func_counter():
     data = Counter(
-        "aksjaskfjsklfjdslkfjajfopewtoieqpwdpqworiiqjskanvmcxbmpewrqopkqwlmdzczmxvmvlnjpjqpkqzxvmbowiqeorewi"
+        "aksjaskfjsklfjdslkfjajfopewtoieqpwdpqworiiqjskanvmcxbmpewrqopkqwlmdzczmxvmvlnjpjqpkqzxvmbowiqeorewi"  # noqa
     )
 
     def min_values():
@@ -462,6 +462,15 @@ def func_counter():
 
     data.min_values = min_values
     data.max_values = max_values
+
+
+def here_we_go_again():
+    with open("name_log.csv", "r", encoding="utf-8") as file_csv:
+        data = file_csv.readlines()
+    rows = list(csv.reader(data))
+    emails = Counter(map(lambda x: x[1], rows[1:]))
+    for item in sorted(emails.keys()):
+        print(f"{item}: {emails[item]}")
 
 
 def zoo():
