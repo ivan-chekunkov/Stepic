@@ -473,6 +473,12 @@ def here_we_go_again():
         print(f"{item}: {emails[item]}")
 
 
+def scrabble(symbols, word):
+    if Counter(symbols.lower()) >= Counter(word.lower()):
+        return True
+    return False
+
+
 def zoo():
     with open(FILES_DIR + "zoo.json", "r", encoding="utf-8") as file:
         zoopark = ChainMap(*json.load(file))
