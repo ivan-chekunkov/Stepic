@@ -479,6 +479,13 @@ def scrabble(symbols, word):
     return False
 
 
+def print_bar_chart(data, mark):
+    count_item = Counter(data)
+    max_len_key = max(map(lambda x: len(x), count_item.keys())) + 1
+    for item in count_item.most_common():
+        print(f"{item[0]:{max_len_key}}|{mark*item[1]}")
+
+
 def zoo():
     with open(FILES_DIR + "zoo.json", "r", encoding="utf-8") as file:
         zoopark = ChainMap(*json.load(file))
