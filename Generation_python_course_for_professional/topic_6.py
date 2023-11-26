@@ -510,6 +510,19 @@ def free_courses_take_their_toll():
     print(result)
 
 
+def free_courses_take_their_toll_2():
+    data = Counter(input().split())
+    result = 0
+    for _ in range(int(input())):
+        line = input().split()
+        book, price = line[0], int(line[1])
+        count = data.get(book, 0)
+        if count:
+            result += price
+            data[book] = count - 1
+    print(result)
+
+
 def zoo():
     with open(FILES_DIR + "zoo.json", "r", encoding="utf-8") as file:
         zoopark = ChainMap(*json.load(file))
@@ -561,8 +574,35 @@ def the_bakery_magnate():
     print(f"ИТОГ: {summa}р")
 
 
+def get_all_values(chainmap: ChainMap, key):
+    result = set()
+    for elem in chainmap.maps:
+        value = elem.get(key, False)
+        if value:
+            result.add(value)
+    return result
+
+
+def deep_update(chainmap: ChainMap, key, value):
+    if not chainmap.get(key, False):
+        chainmap.maps[0][key] = value
+    for index in range(len(chainmap.maps)):
+        if chainmap.maps[index].get(key, False):
+            chainmap.maps[index][key] = value
+
+
+def get_value(chainmap: ChainMap, key, from_left: bool = True):
+    if not chainmap.get(key, False):
+        return None
+    if from_left:
+        return chainmap[key]
+    chainmap.maps.reverse()
+    return chainmap[key]
+
+
 if __name__ == "__main__":
-    zoo()
+    free_courses_take_their_toll()
+    # zoo()
     # the_zen_of_python()
     # and_how_much_does_the_course_cost()
     # print(count_occurences(
