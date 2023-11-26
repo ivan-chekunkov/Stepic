@@ -464,6 +464,12 @@ def func_counter():
     data.max_values = max_values
 
 
+def word_length_statistics():
+    result = Counter(map(len, input().split()))
+    for elem in sorted(result.items(), key=lambda x: x[1]):
+        print(f"Слов длины {elem[0]}: {elem[1]}")
+
+
 def here_we_go_again():
     with open("name_log.csv", "r", encoding="utf-8") as file_csv:
         data = file_csv.readlines()
@@ -484,6 +490,24 @@ def print_bar_chart(data, mark):
     max_len_key = max(map(lambda x: len(x), count_item.keys())) + 1
     for item in count_item.most_common():
         print(f"{item[0]:{max_len_key}}|{mark*item[1]}")
+
+
+def free_courses_take_their_toll():
+    products = Counter()
+    for index in range(1, 5):
+        with open(
+            FILES_DIR + "quarter{}.csv".format(index), "r", encoding="utf-8"
+        ) as file_csv:
+            data = file_csv.readlines()
+        rows = list(csv.reader(data))
+        for row in rows[1:]:
+            products.update({row[0]: sum(map(int, (row[1], row[2], row[3])))})
+    with open(FILES_DIR + "prices.json", "r", encoding="utf-8") as file_json:
+        prices = json.load(file_json)
+    result = 0
+    for key, val in products.items():
+        result += int(val) * prices[key]
+    print(result)
 
 
 def zoo():
@@ -549,7 +573,7 @@ if __name__ == "__main__":
     # func10()
     # func_9()
     # func_8()
-    # messages = ['How is Stepik for everyone', 'Stepik is useful for practice']
+    # messages = ['How is Stepik for everyone', 'Stepik is useful for practice']  # noqa
     # senders = ['Bob', 'Charlie']
     # print(best_sender(messages, senders))
     # print(flip_dict({'a': [1, 2], 'b': [3, 1], 'c': [2]}))
