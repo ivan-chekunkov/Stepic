@@ -1,5 +1,8 @@
 import functools
+import sys
+import string
 from datetime import date, datetime
+from functools import lru_cache
 
 
 def convert(number):
@@ -172,17 +175,147 @@ def func2():
         print(f"{film[0]}: {film[2]-film[1]}$")
 
 
-if __name__ == "__main__":
-    func2()
-    # print(my_pow(139))
-    # func1()
-    # numbers = [1, 'two', 3.0, 'четыре', 5, 6.0]
-    # print(custom_isinstance(numbers, (int, float)))
-    # data = [[-3, 4, 0, 1], [1, 1, -4], [0, 0], [9, 3]]
-    # print(is_greater(data, 10))
-    # print(non_negative_even([-8, -4, -2, 0, 2, 4, 8]))
-    # print(convert(15))
-    pass
+def zip_longest(*args, fill=None):
+    len_max_list = len(max(args, key=lambda x: len(x)))
+    [arg.extend((len_max_list - len(arg)) * (fill,)) for arg in args]
+    return list(zip(*args))
+
+
+def unusual_sorting():
+    text = input()
+    sotr_text = sorted(text)
+    sotr_text = sorted(
+        text,
+        key=lambda x: (
+            not x.islower(),
+            not x.isupper(),
+            x.isdigit() and (int(x) % 2 == 0),
+            x,
+        ),
+    )
+    print("".join(sotr_text))
+
+
+def hash_as_key(objects):
+    result = {}
+    for object in objects:
+        hash_obj = hash(object)
+        temp = result.get(hash_obj)
+        if temp:
+            if isinstance(temp, list):
+                temp.append(object)
+                result[hash_obj] = temp
+                continue
+            result[hash_obj] = [temp, object]
+            continue
+        result[hash_obj] = object
+    return result
+
+
+def collections():
+    text = eval(input())
+    if type(text) is list:
+        print(text[-1])
+    if type(text) is set:
+        print(len(text))
+    if type(text) is tuple:
+        print(text[0])
+
+
+def mathematical_expressions():
+    print(max(map(eval, sys.stdin.readlines())))
+
+
+def minimum_and_maximum():
+    string = input()
+    min_num, max_num = input().split()
+    pattern_min = (
+        "Минимальное значение функции {} на отрезке [{}; {}] равно {}"
+    )
+    pattern_max = (
+        "Максимальное значение функции {} на отрезке [{}; {}] равно {}"
+    )
+    result_min = min(
+        eval(string.replace("x", "(" + str(index) + ")"))
+        for index in range(int(min_num), int(max_num) + 1)
+    )
+    result_max = max(
+        eval(string.replace("x", "(" + str(index) + ")"))
+        for index in range(int(min_num), int(max_num) + 1)
+    )
+    print(pattern_min.format(string, min_num, max_num, result_min))
+    print(pattern_max.format(string, min_num, max_num, result_max))
+
+
+def print_operation_table(operation, rows, cols):
+    for n in range(1, rows + 1):
+        for m in range(1, cols + 1):
+            print(operation(n, m), end=" ")
+        print()
+
+
+def success(login):
+    print(f"Привет, {login}!")
+
+
+def failure(login, text):
+    print(f"{login}, попробуйте снова. Ошибка: {text}")
+
+
+def verification(login, password, success, failure):
+    if not any(map(lambda x: x in string.ascii_letters, password)):
+        failure(login, "в пароле нет ни одной буквы")
+        return
+    if not any(map(lambda x: x in string.ascii_uppercase, password)):
+        failure(login, "в пароле нет ни одной заглавной буквы")
+        return
+    if not any(map(lambda x: x in string.ascii_lowercase, password)):
+        failure(login, "в пароле нет ни одной строчной буквы")
+        return
+    if not any(map(str.isdigit, password)):
+        failure(login, "в пароле нет ни одной цифры")
+        return
+    success(login)
+
+
+def numbers_sum(elems):
+    """
+    Принимает список и возвращает сумму его чисел (int, float),
+    игнорируя нечисловые объекты. 0 - если в списке чисел нет.
+    """
+    result = 0
+    for elem in elems:
+        if type(elem) in (int, float):
+            result += elem
+    return result
+
+
+def new_print():
+    old_print = print
+
+    def print(*args, sep=" ", end="\n"):
+        old_print(
+            *[arg.upper() if type(arg) is str else arg for arg in args],
+            sep=sep.upper(),
+            end=end.upper(),
+        )
+
+
+def polynom(x):
+    result = x**2 + 1
+    if not polynom.__dict__.get("values", False):
+        polynom.__dict__["values"] = set()
+    polynom.__dict__["values"].add(result)
+    return result
+
+
+def remove_marks(text: str, marks):
+    text = list(text)
+    for index in range(len(text)):
+        if text[index] in marks:
+            text[index] = ""
+    remove_marks.__dict__["count"] = remove_marks.__dict__.get("count", 0) + 1
+    return "".join(text)
 
 
 def power(degree):
@@ -253,6 +386,34 @@ def sort_priority2(values, group):
         return x not in group, x
 
     values.sort(key=comparator)
+
+
+def get_digits(number: int | float) -> list[int]:
+    return list(int(i) for i in str(number) if i.isdigit())
+
+
+def top_grade(grades: dict[str, str | list[int]]) -> dict[str, str | int]:
+    result: dict[str, str | int] = {}
+    result["name"] = grades["name"]
+    result["top_grade"] = max(grades["grades"])
+    return result
+
+
+def cyclic_shift(numbers: list[int | float], step: int) -> None:
+    result = [""] * len(numbers)
+    for index in range(len(numbers)):
+        temp_step = (index + step) % len(numbers)
+        result[temp_step] = numbers[index]
+    numbers[:] = result
+
+
+def matrix_to_dict(
+    matrix: list[list[int | float]],
+) -> dict[int, list[int | float]]:
+    result = {}
+    for index in range(1, len(matrix) + 1):
+        result[index] = matrix[index - 1]
+    return result
 
 
 def sandwich(func):
@@ -480,7 +641,7 @@ def retry(times: int):
                 try:
                     value = func(*args, **kwargs)
                     return value
-                except:
+                except Exception:
                     pass
             else:
                 raise MaxRetriesException
@@ -490,24 +651,24 @@ def retry(times: int):
     return decorator
 
 
-# if __name__ == '__main__':
-#     numbers = [8, 3, 1, 2, 5, 4, 7, 6]
-#     group = {5, 7, 2, 3}
-#     sort_priority2(numbers, group)
+@lru_cache
+def just_dima(word):
+    result = list(word)
+    result.sort()
+    return "".join(result)
 
-#     print(numbers)
 
-#     # date_ru = date_formatter('ru')
-#     # today = date(2022, 1, 25)
-#     # print(date_ru(today))
-
-#     # url = 'https://all_for_comfort_life.com'
-#     # load = sourcetemplate(url)
-#     # print(load(smartphone='iPhone', notebook='huawei', sale=True))
-
-#     # f = generator_square_polynom(1, 2, 1)
-#     # print(f(5))
-
-#     # square = power(2)
-#     # print(square(5))
-#     pass
+if __name__ == "__main__":
+    for word in sys.stdin.readlines():
+        result = just_dima(word.strip("\n"))
+        print(result)
+    # func2()
+    # print(my_pow(139))
+    # func1()
+    # numbers = [1, 'two', 3.0, 'четыре', 5, 6.0]
+    # print(custom_isinstance(numbers, (int, float)))
+    # data = [[-3, 4, 0, 1], [1, 1, -4], [0, 0], [9, 3]]
+    # print(is_greater(data, 10))
+    # print(non_negative_even([-8, -4, -2, 0, 2, 4, 8]))
+    # print(convert(15))
+    pass
