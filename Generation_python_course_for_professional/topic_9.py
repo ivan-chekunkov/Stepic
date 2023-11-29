@@ -658,6 +658,15 @@ def just_dima(word):
     return "".join(result)
 
 
+@lru_cache
+def ways(n):
+    if n <= 3:
+        return 1
+    if n == 4:
+        return 2
+    return ways(n - 1) + ways(n - 3) + ways(n - 4)
+
+
 if __name__ == "__main__":
     for word in sys.stdin.readlines():
         result = just_dima(word.strip("\n"))
