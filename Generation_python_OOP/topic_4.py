@@ -1,7 +1,8 @@
 import re
+from datetime import date
+from functools import singledispatchmethod
 from math import pi, sqrt
 from typing import Iterable
-from functools import singledispatchmethod
 
 
 class PiggyBank:
@@ -735,3 +736,36 @@ class Formatter:
         result = ", ".join(f"({repr(key)}, {repr(val)})"
                            for key, val in data.items())
         print(result)
+
+
+class BirthInfo:
+
+    @singledispatchmethod
+    def __init__(self, birth_date) -> None:
+        raise TypeError("Аргумент переданного типа не поддерживается")
+
+    @__init__.register(date)
+    def _from_date__init__(self, birth_date) -> None:
+        self.birth_date = birth_date
+
+    @__init__.register(str)
+    def _from_str__init__(self, birth_date) -> None:
+        try:
+            self.birth_date = date.fromisoformat(birth_date)
+        except Exception:
+            raise TypeError("Аргумент переданного типа не поддерживается")
+
+    @__init__.register(tuple)
+    @__init__.register(list)
+    def _from_tuple_list__init__(self, birth_date) -> None:
+        self.birth_date = date(*birth_date)
+
+    @property
+    def age(self):
+        return current_age(self.birth_date, date.today())
+
+
+def current_age(date, today) -> int:
+    age = today.year - date.year - 1
+    age += (today.month, today.day) >= (date.month, date.day)
+    return age
